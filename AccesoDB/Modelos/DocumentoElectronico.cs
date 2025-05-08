@@ -1,8 +1,12 @@
-﻿namespace AccesoDB.Modelos
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace AccesoDB.Modelos
 {
     public class DocumentoElectronico
     {
-        public string? IdentificadorCaso { get; set; }
+        [Key]
+        public int Id { get; set; }
+        public string? IdCaso { get; set; }
         public string? Nombre { get; set; }
         public string? Extension { get; set; }
         public string? Direccion { get; set; }
