@@ -1,0 +1,35 @@
+﻿<Window x:Class="WPF.Windows.FormularioCrearAdmin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:WPF.Windows"
+        Title="Registrar Administrador" Height="400" Width="300"
+        ResizeMode="NoResize">
+        <StackPanel Margin="10">
+                <Label Content="Nombres"/>
+                <TextBox x:Name="TxtNombres"/>
+                <Label Content="Apellidos"/>
+                <TextBox x:Name="TxtApellidos"/>
+                <Label Content="Rut"/>
+                <TextBox x:Name="TxtRut"/>
+                <Label Content="Contraseña"/>
+                <TextBox x:Name="TxtContrasena"/>
+                <Label Content="Correo"/>
+                <TextBox x:Name="TxtCorreo"/>
+                <Label Content="Teléfono"/>
+                <TextBox x:Name="TxtTelefono"/>
+                <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                        <Button x:Name="BtnCancelar" 
+                                Content="Cancelar" 
+                                Padding="5" 
+                                Margin="10" 
+                                Width="70"
+                                Click="BtnCancelar_OnClick"/>
+                        <Button x:Name="BtnAceptar" 
+                                Content="Aceptar" 
+                                Padding="5" 
+                                Margin="10" 
+                                Width="70"
+                                Click="BtnAceptar_OnClick"/>
+                </StackPanel>
+        </StackPanel>
+</Window>
