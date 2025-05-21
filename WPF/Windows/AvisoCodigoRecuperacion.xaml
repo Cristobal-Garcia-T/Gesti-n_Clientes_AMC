@@ -1,0 +1,28 @@
+﻿<Window x:Class="WPF.Windows.AvisoCodigoRecuperacion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:WPF.Windows"
+        mc:Ignorable="d"
+        Title="Codigo de Recuperacion" Height="150" Width="400"
+        ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Name="Label"
+               Margin="10"
+               Height="auto" Width="auto"
+               VerticalAlignment="Center"
+               HorizontalAlignment="Center"/>
+        <Button Grid.Row="1" 
+                Content="Aceptar" 
+                Click="ButtonBase_OnClick"
+                Padding="5"
+                Height="auto" Width="auto"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"/>
+    </Grid>
+</Window>

@@ -1,9 +1,6 @@
-﻿using System.Security.Cryptography;
-using System.Text;
-using System.Windows;
-using AccesoDB;
-using AccesoDB.Modelos;
+﻿using System.Windows;
 using ControladoresWPF;
+using Microsoft.Extensions.DependencyInjection;
 using Servicios;
 
 namespace WPF.Windows;
@@ -24,18 +21,18 @@ public partial class FormularioCrearAdmin : Window
     private void BtnAceptar_OnClick(object sender, RoutedEventArgs e)
     {
         DialogResult = true;
-        /*var servicio = new ServicioAdministradores(new ContextoDb());
-        new FormularioCrearAdminViewModel(servicio).AgregarAdministrador(new Administrador
-        {
-            Nombres = TxtNombres.Text,
-            Apellidos = TxtApellidos.Text,
-            Id = TxtRut.Text,
-            Contrasena = TxtContrasena.Text,
-            Correo = TxtCorreo.Text,
-            Telefono = TxtTelefono.Text,
-            CodigoRecuperación = new Random().Next(100,999),
-            Direccion = null
-        });
-        Close();*/
+        var servicio = App.AppHost.Services.GetRequiredService<ServicioAdministradores>();
+        var codigoRecuperacion = new TablaUsuariosViewModel(servicio).AgregarAdministrador(
+        [
+            TxtRut.Text,
+            TxtNombres.Text,
+            TxtApellidos.Text,
+            TxtContrasena.Text,
+            TxtCorreo.Text,
+            TxtTelefono.Text
+        ]
+        );
+        new AvisoCodigoRecuperacion(codigoRecuperacion).ShowDialog();
+        Close();
     }
 }

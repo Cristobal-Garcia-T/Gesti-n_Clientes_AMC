@@ -1,0 +1,32 @@
+﻿<Window x:Class="WPF.Windows.AdvertenciaSinAdmin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:WPF.Windows"
+        Title="¡Sin administrador regsitrado!" Height="150" Width="350"
+        ResizeMode="NoResize">
+    <Grid Width="auto" Height="auto">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Label Content="No hay administradores regsitrados, por favor cree uno"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               Margin="10"/>
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+            <Button Name="BtnCancelar"
+                    Margin="10"
+                    Padding="5"
+                    Content="Cancelar" 
+                    Click="BtnCancelar_OnClick"/>
+            <Button Name="BtnAceptar" 
+                    Margin="10"
+                    Padding="5"
+                    Content="Aceptar" 
+                    Click="BtnAceptar_OnClick"/>
+        </StackPanel>
+    </Grid>
+</Window>

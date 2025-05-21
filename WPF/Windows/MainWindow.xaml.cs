@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using AccesoDB;
 using ControladoresWPF;
+using Microsoft.Extensions.DependencyInjection;
 using Servicios;
 
 namespace WPF.Windows
@@ -9,12 +10,13 @@ namespace WPF.Windows
     {
         public MainWindow()
         {
-            //var viewModel = new MainWindowViewModel(new ServicioAdministradores(new ContextoDb()));
+            var servicio = App.AppHost.Services.GetRequiredService<ServicioAdministradores>();
+            var viewModel = new MainWindowViewModel(servicio);
             InitializeComponent();
-            /*if (viewModel.AdminNoExistente())
+            if (viewModel.AdminNoExistente())
             {
-                new FormularioCrearAdmin().ShowDialog();
-            }*/
+                new AdvertenciaSinAdmin().ShowDialog();
+            }
         }
     }
 }
