@@ -9,12 +9,12 @@ namespace WPF.Windows
     {
         public MainWindow()
         {
-            var viewModel = new MainWindowViewModel(new ServicioAdministradores(new ContextoDb()));
+            //var viewModel = new MainWindowViewModel(new ServicioAdministradores(new ContextoDb()));
             InitializeComponent();
-            if (viewModel.AdminNoExistente())
+            /*if (viewModel.AdminNoExistente())
             {
                 new FormularioCrearAdmin().ShowDialog();
-            }
+            }*/
         }
     }
 }

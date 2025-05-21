@@ -6,7 +6,7 @@ using Servicios;
 
 namespace ControladoresWPF;
 
-public class VistaAdminViewModel
+public class VistaAdminViewModel : INotifyPropertyChanged
 {
     private readonly ServicioAdministradores _servicio;
     public ObservableCollection<Administrador> ListaAdministradores { get; set; }
@@ -14,6 +14,22 @@ public class VistaAdminViewModel
     public VistaAdminViewModel(ServicioAdministradores servicio)
     {
         _servicio = servicio;
-        ListaAdministradores = new ObservableCollection<Administrador>(servicio.RecuperarTodos());
+        ListaAdministradores = [];
+    }
+
+    public void RecuperarTodos()
+    {
+        ListaAdministradores = new ObservableCollection<Administrador>(_servicio.RecuperarTodos());
+        OnPropertyChanged(nameof(ListaAdministradores));
+    }
+    public void AgregarAdministrador(Administrador admin)
+    {
+        
+    }
+    public event PropertyChangedEventHandler? PropertyChanged;
+    
+    protected void OnPropertyChanged([CallerMemberName] string? name = null)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
 }

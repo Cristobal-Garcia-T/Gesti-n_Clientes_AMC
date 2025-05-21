@@ -5,10 +5,9 @@ namespace AccesoDB
 {
     public class ContextoDb : DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public ContextoDb(DbContextOptions<ContextoDb> options) : base(options)
         {
-            optionsBuilder.UseSqlite("Data Source = GCAMCDB.db");
-
+            
         }
 
         //Tablas, sus columnas se mapean de los modelos en AccesoDB/Modelos, Persona no se mapea

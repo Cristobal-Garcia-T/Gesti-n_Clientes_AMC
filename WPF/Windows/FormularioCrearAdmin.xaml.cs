@@ -24,29 +24,18 @@ public partial class FormularioCrearAdmin : Window
     private void BtnAceptar_OnClick(object sender, RoutedEventArgs e)
     {
         DialogResult = true;
-        var servicio = new ServicioAdministradores(new ContextoDb());
+        /*var servicio = new ServicioAdministradores(new ContextoDb());
         new FormularioCrearAdminViewModel(servicio).AgregarAdministrador(new Administrador
         {
             Nombres = TxtNombres.Text,
             Apellidos = TxtApellidos.Text,
             Id = TxtRut.Text,
-            Contrasena = Encriptar(TxtContrasena.Text),
+            Contrasena = TxtContrasena.Text,
             Correo = TxtCorreo.Text,
             Telefono = TxtTelefono.Text,
             CodigoRecuperación = new Random().Next(100,999),
             Direccion = null
         });
-        Close();
-    }
-
-    private string Encriptar(string txt)
-    {
-        string hash = String.Empty;
-        byte[] encriptado = SHA256.HashData(Encoding.UTF8.GetBytes(txt));
-        foreach (byte b in encriptado)
-        {
-            hash += b.ToString("x2");
-        }
-        return hash;
+        Close();*/
     }
 }
