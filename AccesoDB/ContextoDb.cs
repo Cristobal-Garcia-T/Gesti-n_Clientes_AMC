@@ -10,7 +10,7 @@ namespace AccesoDB
             
         }
 
-        //Tablas, sus columnas se mapean de los modelos en AccesoDB/Modelos, Persona no se mapea
+        //Tablas, sus columnas se mapean a partir de los modelos en AccesoDB/Modelos, "Persona" no se mapea directamente
         public DbSet<Administrador> Administradores { get; set; }
         public DbSet<Beneficiario> Beneficiarios { get; set; }
         public DbSet<Caso> Casos { get; set; }

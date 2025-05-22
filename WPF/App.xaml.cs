@@ -1,11 +1,9 @@
 ﻿using System.Windows;
 using AccesoDB;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Servicios;
-using WPF.Windows;
 
 namespace WPF
 {
@@ -37,6 +35,8 @@ namespace WPF
 
         private void BdCreada()
         {
+            //Este método se asegura que exista el archivo de la base de datos en el sistema, en caso contrario la crea
+            //Hace uso del AppHost para obtener el contexto necesario de la BD
             using var scope = AppHost.Services.CreateScope();
             var db = scope.ServiceProvider.GetRequiredService<ContextoDb>();
             db.Database.EnsureCreated();
@@ -44,6 +44,7 @@ namespace WPF
 
         protected override async void OnStartup(StartupEventArgs e)
         {
+            //Inicio de la aplicación
             base.OnStartup(e);
             await AppHost.StartAsync();
         }

@@ -12,6 +12,7 @@ public class MainWindowViewModel
         _servicioAdministradores = servicioAdministradores;
     }
 
+    //Indica que no hay administradores registrados
     public bool AdminNoExistente() => _servicioAdministradores.TablaVacia();
     
 }
