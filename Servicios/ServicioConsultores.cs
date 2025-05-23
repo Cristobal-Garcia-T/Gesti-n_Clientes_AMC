@@ -1,8 +1,5 @@
 ﻿using AccesoDB;
 using AccesoDB.Modelos;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Servicios
 {
@@ -30,13 +27,13 @@ namespace Servicios
             var existente = _contexto.Consultores.Find(consultor.Id);
             if (existente != null)
             {
-                existente.NombreUsuario = consultor.NombreUsuario;
+                existente.Nombres = consultor.Nombres;
                 existente.Contrasena = consultor.Contrasena;
                 _contexto.SaveChanges();
             }
         }
 
-        public void Eliminar(int id)
+        public void Eliminar(string? id)
         {
             var consultor = _contexto.Consultores.Find(id);
             if (consultor != null)

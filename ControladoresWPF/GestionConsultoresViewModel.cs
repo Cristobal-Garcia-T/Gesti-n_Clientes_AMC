@@ -8,8 +8,7 @@ namespace ControladoresWPF
 {
     public class GestionConsultoresViewModel : INotifyPropertyChanged
     {
-        private readonly ServicioConsultores _servicio = new ServicioConsultores();
-
+        private readonly ServicioConsultores _servicio;
         public ObservableCollection<Consultor> Consultores { get; set; }
         private Consultor? _consultorSeleccionado;
         public Consultor? ConsultorSeleccionado
@@ -17,15 +16,14 @@ namespace ControladoresWPF
             get => _consultorSeleccionado;
             set { _consultorSeleccionado = value; OnPropertyChanged(nameof(ConsultorSeleccionado)); }
         }
-
         public ICommand CrearCommand { get; }
         public ICommand ActualizarCommand { get; }
         public ICommand EliminarCommand { get; }
 
-        public GestionConsultoresViewModel()
+        public GestionConsultoresViewModel(ServicioConsultores servicio)
         {
+            _servicio = servicio;
             Consultores = new ObservableCollection<Consultor>(_servicio.ObtenerTodos());
-
             CrearCommand = new RelayCommand(_ => Crear());
             ActualizarCommand = new RelayCommand(_ => Actualizar(), _ => ConsultorSeleccionado != null);
             EliminarCommand = new RelayCommand(_ => Eliminar(), _ => ConsultorSeleccionado != null);
@@ -33,28 +31,31 @@ namespace ControladoresWPF
 
         private void Crear()
         {
-            var nuevo = new Consultor { NombreUsuario = "nuevo", Contrasena = "1234" };
+            var nuevo = new Consultor()
+            {
+                Id = "6464165616",
+                Nombres = "nuevo", 
+                Contrasena = "1234",
+                NumeroClientes = 1,
+                NumeroCasos = 0
+            };
             _servicio.Crear(nuevo);
             Consultores.Add(nuevo);
         }
 
         private void Actualizar()
         {
-            if (ConsultorSeleccionado != null)
-{
-    _servicio.Actualizar(ConsultorSeleccionado);
-}
+            if (ConsultorSeleccionado != null) _servicio.Actualizar(ConsultorSeleccionado);
 
         }
 
         private void Eliminar()
         {
-if (ConsultorSeleccionado?.Id != null)
-{
-     _servicio.Eliminar(ConsultorSeleccionado.Id);
-     Consultores.Remove(ConsultorSeleccionado);
-}
-
+            if (ConsultorSeleccionado?.Id != null)
+            {
+                _servicio.Eliminar(ConsultorSeleccionado.Id);
+                Consultores.Remove(ConsultorSeleccionado);
+            }
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;

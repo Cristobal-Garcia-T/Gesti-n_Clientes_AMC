@@ -46,11 +46,6 @@ namespace WPF
         {
             base.OnStartup(e);
             await AppHost.StartAsync();
-
-            var mainWindow = new MainWindow();
-            mainWindow.Show();
-            
-            
         }
     }
 }

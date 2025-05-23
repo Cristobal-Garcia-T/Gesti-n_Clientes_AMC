@@ -13,9 +13,7 @@ namespace WPF.Windows
             //Obtención del servicio necesario para conectar a la tabla "Administradores"
             var servicio = App.AppHost.Services.GetRequiredService<ServicioAdministradores>();
             var viewModel = new MainWindowViewModel(servicio);
-            this.DataContext = viewModel;
-
-
+            
             InitializeComponent();
 
             //Se verifica si existe algún registro en la tabla "Administradores"
@@ -25,8 +23,8 @@ namespace WPF.Windows
             }
 
             // ABRIR LA VENTANA DE GESTIÓN DE CONSULTORES
-            var ventanaConsultores = new GestionConsultores();
-            ventanaConsultores.Show();
+            //var ventanaConsultores = new GestionConsultores();
+            //ventanaConsultores.Show();
         }
     }
 }
