@@ -1,9 +1,11 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using AccesoDB;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Servicios;
+using WPF.Windows;
 
 namespace WPF
 {
@@ -15,10 +17,10 @@ namespace WPF
         {
             AppHost = Host.CreateDefaultBuilder().ConfigureServices((context, services) =>
             {
-                //Añadir Db a conteneedor de servicios
+                // Añadir Db a contenedor de servicios
                 services.AddDbContext<ContextoDb>(options => options.UseSqlite("Data Source=GCAMCDB.db"));
-                
-                //Servicios en el contenedor, así se pueden inyectar sin necesidad de instanciar en el momento
+
+                // Servicios en el contenedor, así se pueden inyectar sin necesidad de instanciar en el momento
                 services.AddScoped<ServicioAdministradores>();
                 services.AddScoped<ServicioBeneficiarios>();
                 services.AddScoped<ServicioCasos>();
@@ -27,7 +29,6 @@ namespace WPF
                 services.AddScoped<ServicioDocumentos>();
                 services.AddScoped<ServicioEmpresas>();
                 services.AddScoped<ServicioTareas>();
-                
             }).Build();
 
             BdCreada();
@@ -35,8 +36,7 @@ namespace WPF
 
         private void BdCreada()
         {
-            //Este método se asegura que exista el archivo de la base de datos en el sistema, en caso contrario la crea
-            //Hace uso del AppHost para obtener el contexto necesario de la BD
+            // Este método se asegura que exista el archivo de la base de datos en el sistema, en caso contrario la crea
             using var scope = AppHost.Services.CreateScope();
             var db = scope.ServiceProvider.GetRequiredService<ContextoDb>();
             db.Database.EnsureCreated();
@@ -44,10 +44,13 @@ namespace WPF
 
         protected override async void OnStartup(StartupEventArgs e)
         {
-            //Inicio de la aplicación
             base.OnStartup(e);
             await AppHost.StartAsync();
+
+            var mainWindow = new MainWindow();
+            mainWindow.Show();
+            
+            
         }
     }
-
 }

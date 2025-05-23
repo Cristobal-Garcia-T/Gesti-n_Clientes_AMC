@@ -9,17 +9,24 @@ namespace WPF.Windows
     {
         public MainWindow()
         {
-            //Obtención del servicio necesario para conectar a la tabla "Adminitradores"
-            //e inyección del servicio en el ViewModel de la ventana
+            
+            //Obtención del servicio necesario para conectar a la tabla "Administradores"
             var servicio = App.AppHost.Services.GetRequiredService<ServicioAdministradores>();
             var viewModel = new MainWindowViewModel(servicio);
+            this.DataContext = viewModel;
+
+
             InitializeComponent();
-            //Se verifica si existe algún registro en la tabla "Administradores", en caso contrario
-            //se le indica al usuario que necesita registrar uno.
+
+            //Se verifica si existe algún registro en la tabla "Administradores"
             if (viewModel.AdminNoExistente())
             {
                 new AdvertenciaSinAdmin().ShowDialog();
             }
+
+            // ABRIR LA VENTANA DE GESTIÓN DE CONSULTORES
+            var ventanaConsultores = new GestionConsultores();
+            ventanaConsultores.Show();
         }
     }
 }

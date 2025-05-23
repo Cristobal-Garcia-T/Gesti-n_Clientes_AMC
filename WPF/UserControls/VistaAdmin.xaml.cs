@@ -3,20 +3,18 @@ using ControladoresWPF;
 using Microsoft.Extensions.DependencyInjection;
 using Servicios;
 
-namespace WPF.UserControls;
-
-public partial class VistaAdmin : UserControl
+namespace WPF.UserControls
 {
-    private readonly TablaUsuariosViewModel _usuariosViewModel;
-    public VistaAdmin()
+    public partial class VistaAdmin : UserControl
     {
-        //Inyección de servicios al ViewModel
-        var servicio = App.AppHost.Services.GetRequiredService<ServicioAdministradores>();
-        _usuariosViewModel = new TablaUsuariosViewModel(servicio);
-        //Definición de la fuente de datos para la vista
-        DataContext = _usuariosViewModel;
-        //En contrucción la tabla recupera todos los registros
-        _usuariosViewModel.RecuperarTodos();
-        InitializeComponent();
+        public VistaAdmin()
+        {
+            InitializeComponent();
+
+            var servicio = App.AppHost.Services.GetRequiredService<ServicioAdministradores>();
+            var vm = new TablaUsuariosViewModel(servicio);
+            vm.RecuperarTodos();
+            this.DataContext = vm;
+        }
     }
 }

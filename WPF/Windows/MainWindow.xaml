@@ -6,6 +6,9 @@
         xmlns:userControls="clr-namespace:WPF.UserControls"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="800">
-        <userControls:VistaAdmin></userControls:VistaAdmin>
+    <Grid>
+        <userControls:VistaAdmin/>
+    </Grid>
 </Window>
-        
+
+    

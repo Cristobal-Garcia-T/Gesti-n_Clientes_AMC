@@ -5,5 +5,6 @@
         public string? Contrasena { get; set; }
         public int NumeroClientes { get; set; }
         public int NumeroCasos { get; set; }
+        public string? NombreUsuario { get; set; }
     }
 }

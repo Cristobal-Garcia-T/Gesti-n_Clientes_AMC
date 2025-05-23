@@ -5,21 +5,23 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:WPF.UserControls"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-        <DataGrid ColumnWidth="*" 
-                  ItemsSource="{Binding ListaAdministradores}"
-                  CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False"
-                  CanUserReorderColumns="False"
-                  AutoGenerateColumns="False">
+             d:DesignHeight="300" d:DesignWidth="800">
+    <Grid Margin="10">
+        <DataGrid ItemsSource="{Binding ListaAdministradores}"
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  CanUserResizeRows="False"
+                  HeadersVisibility="Column"
+                  ColumnWidth="*">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Rut" Binding="{Binding Id}" Width="auto"></DataGridTextColumn>
-                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombres}" Width="0.3*"></DataGridTextColumn>
-                <DataGridTextColumn Header="Apellido" Binding="{Binding Apellidos}" Width="0.3*"></DataGridTextColumn>
-                <DataGridTextColumn Header="Correo" Binding="{Binding Correo}" Width="0.2*"></DataGridTextColumn>
-                <DataGridTextColumn Header="Teléfono" Binding="{Binding Telefono}" Width="0.2*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Rut" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombres}" />
+                <DataGridTextColumn Header="Apellido" Binding="{Binding Apellidos}" />
+                <DataGridTextColumn Header="Correo" Binding="{Binding Correo}" />
+                <DataGridTextColumn Header="Teléfono" Binding="{Binding Telefono}" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
-    
 </UserControl>
