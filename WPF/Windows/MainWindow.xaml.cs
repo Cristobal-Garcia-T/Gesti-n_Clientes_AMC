@@ -21,10 +21,6 @@ namespace WPF.Windows
             {
                 new AdvertenciaSinAdmin().ShowDialog();
             }
-
-            // ABRIR LA VENTANA DE GESTIÓN DE CONSULTORES
-            //var ventanaConsultores = new GestionConsultores();
-            //ventanaConsultores.Show();
         }
     }
 }
