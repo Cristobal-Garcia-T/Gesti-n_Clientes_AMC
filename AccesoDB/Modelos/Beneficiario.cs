@@ -13,5 +13,6 @@ namespace AccesoDB.Modelos
         public string? VigenciaVisa { get; set; }
         public string? Ocupacion { get; set; }
         public string? PaisResidencia { get; set; } 
+        public string? Direccion { get; set; }
     }
 }

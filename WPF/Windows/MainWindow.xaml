@@ -11,8 +11,8 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <userControls:VistaAdmin Grid.Row="0"/>
-        <userControls:GestionConsultores Grid.Row="1"/>
+        <userControls:VistaGestionAdmin Grid.Row="0"/>
+        <userControls:VsitaGestionConsultores Grid.Row="1"/>
     </Grid>
 </Window>
 

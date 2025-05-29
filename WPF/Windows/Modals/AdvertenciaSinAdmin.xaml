@@ -1,4 +1,4 @@
-﻿<Window x:Class="WPF.Windows.AdvertenciaSinAdmin"
+﻿<Window x:Class="WPF.Windows.Modals.AdvertenciaSinAdmin"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:WPF.Windows"
@@ -18,11 +18,13 @@
                     VerticalAlignment="Center"
                     HorizontalAlignment="Center">
             <Button Name="BtnCancelar"
+                    IsCancel="True"
                     Margin="10"
                     Padding="5"
                     Content="Cancelar" 
                     Click="BtnCancelar_OnClick"/>
             <Button Name="BtnAceptar" 
+                    IsDefault="True"
                     Margin="10"
                     Padding="5"
                     Content="Aceptar" 

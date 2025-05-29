@@ -1,20 +1,21 @@
 ﻿using System.Windows.Controls;
 using ControladoresWPF;
+using ControladoresWPF.UserControls;
 using Microsoft.Extensions.DependencyInjection;
 using Servicios;
 
 namespace WPF.UserControls
 {
-    public partial class VistaAdmin : UserControl
+    public partial class VistaGestionAdmin : UserControl
     {
-        public VistaAdmin()
+        public VistaGestionAdmin()
         {
             InitializeComponent();
 
             var servicio = App.AppHost.Services.GetRequiredService<ServicioAdministradores>();
-            var vm = new TablaUsuariosViewModel(servicio);
+            var vm = new GestionAdminViewModel(servicio);
             vm.RecuperarTodos();
-            this.DataContext = vm;
+            DataContext = vm;
         }
     }
 }

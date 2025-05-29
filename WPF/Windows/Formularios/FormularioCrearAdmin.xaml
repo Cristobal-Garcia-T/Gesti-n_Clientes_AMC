@@ -1,22 +1,27 @@
-﻿<Window x:Class="WPF.Windows.FormularioCrearAdmin"
+﻿<Window x:Class="WPF.Windows.Formularios.FormularioCrearAdmin"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:vm="clr-namespace:ControladoresWPF.Windows.Formularios;assembly=ControladoresWPF"
         xmlns:local="clr-namespace:WPF.Windows"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance Type=vm:FormularioCrearAdminViewModel, IsDesignTimeCreatable=True}"
         Title="Registrar Administrador" Height="400" Width="300"
         ResizeMode="NoResize">
         <StackPanel Margin="10">
                 <Label Content="Nombres"/>
-                <TextBox x:Name="TxtNombres"/>
+                <TextBox Text="{Binding NuevoAdministrador.Nombres, Mode=OneWayToSource}"/>
                 <Label Content="Apellidos"/>
-                <TextBox x:Name="TxtApellidos"/>
+                <TextBox Text="{Binding NuevoAdministrador.Apellidos, Mode=OneWayToSource}"/>
                 <Label Content="Rut"/>
-                <TextBox x:Name="TxtRut"/>
+                <TextBox Text="{Binding NuevoAdministrador.Id, Mode=OneWayToSource}"/>
                 <Label Content="Contraseña"/>
-                <TextBox x:Name="TxtContrasena"/>
+                <TextBox Text="{Binding NuevoAdministrador.Contrasena, Mode=OneWayToSource}"/>
                 <Label Content="Correo"/>
-                <TextBox x:Name="TxtCorreo"/>
+                <TextBox Text="{Binding NuevoAdministrador.Correo, Mode=OneWayToSource}"/>
                 <Label Content="Teléfono"/>
-                <TextBox x:Name="TxtTelefono"/>
+                <TextBox Text="{Binding NuevoAdministrador.Telefono, Mode=OneWayToSource}"/>
                 <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
                         <Button x:Name="BtnCancelar" 
                                 Content="Cancelar" 
@@ -29,7 +34,8 @@
                                 Padding="5" 
                                 Margin="10" 
                                 Width="70"
-                                Click="BtnAceptar_OnClick"/>
+                                Click="BtnAceptar_OnClick"
+                                Command="{Binding AgregarCommand}"/>
                 </StackPanel>
         </StackPanel>
 </Window>
