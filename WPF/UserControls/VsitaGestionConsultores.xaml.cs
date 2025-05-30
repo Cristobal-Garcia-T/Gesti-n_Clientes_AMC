@@ -1,7 +1,9 @@
 using System.Windows;
 using ControladoresWPF;
+using ControladoresWPF.UserControls;
 using Microsoft.Extensions.DependencyInjection;
 using Servicios;
+using WPF.Windows.Formularios;
 
 namespace WPF.UserControls
 {
@@ -16,7 +18,7 @@ namespace WPF.UserControls
 
         private void BotonCrear_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            new FormularioCrearConsultor().ShowDialog();
         }
     }
 }

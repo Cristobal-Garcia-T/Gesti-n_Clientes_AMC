@@ -1,0 +1,26 @@
+﻿<Page x:Class="WPF.Pages.InterfazAdmin"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:WPF.Pages"
+      xmlns:userControls="clr-namespace:WPF.UserControls"
+      mc:Ignorable="d"
+      Title="InterfazAdmin" Height="Auto" Width="Auto">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <userControls:VistaGestionAdmin Grid.Row="0"/>
+        <userControls:VsitaGestionConsultores Grid.Row="1"/>
+        <Button Grid.Row="2"
+                Content="Volver"
+                Width="auto" Height="auto"
+                Margin="5" Padding="3"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Click="ButtonBase_OnClick"/>
+    </Grid>
+</Page>

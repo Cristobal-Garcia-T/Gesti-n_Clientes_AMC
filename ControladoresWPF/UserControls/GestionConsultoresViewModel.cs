@@ -1,9 +1,9 @@
-using AccesoDB.Modelos;
-using Servicios;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using AccesoDB.Modelos;
+using Servicios;
 
-namespace ControladoresWPF
+namespace ControladoresWPF.UserControls
 {
     public class GestionConsultoresViewModel : INotifyPropertyChanged
     {
@@ -30,6 +30,7 @@ namespace ControladoresWPF
         
         private void Actualizar()
         {
+            throw new NotImplementedException();
             _servicioConsultores.Actualizar(ConsultorSeleccionado!);
         }
 

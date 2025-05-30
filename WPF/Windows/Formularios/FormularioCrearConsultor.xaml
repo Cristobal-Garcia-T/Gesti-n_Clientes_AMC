@@ -3,37 +3,39 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:vm="clr-namespace:ControladoresWPF.Windows.Formularios;assembly=ControladoresWPF"
         xmlns:local="clr-namespace:WPF.Windows.Formularios"
         mc:Ignorable="d"
-        Title="FormularioCrearConsultor" Height="450" Width="800">
-    <Grid>
-        <StackPanel Margin="10">
-            <Label Content="Nombres"/>
-            <TextBox x:Name="TxtNombres"/>
-            <Label Content="Apellidos"/>
-            <TextBox x:Name="TxtApellidos"/>
-            <Label Content="Rut"/>
-            <TextBox x:Name="TxtRut"/>
-            <Label Content="Contraseña"/>
-            <TextBox x:Name="TxtContrasena"/>
-            <Label Content="Correo"/>
-            <TextBox x:Name="TxtCorreo"/>
-            <Label Content="Teléfono"/>
-            <TextBox x:Name="TxtTelefono"/>
-            <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-                <Button x:Name="BtnCancelar" 
-                        Content="Cancelar" 
-                        Padding="5" 
-                        Margin="10" 
-                        Width="70"
-                        Click="BtnCancelar_OnClick"/>
-                <Button x:Name="BtnAceptar" 
-                        Content="Aceptar" 
-                        Padding="5" 
-                        Margin="10" 
-                        Width="70"
-                        Click="BtnAceptar_OnClick"/>
-            </StackPanel>
+        d:DataContext="{d:DesignInstance Type=vm:FormularioCrearConsultorViewModel, IsDesignTimeCreatable=True}"
+        Title="FormularioCrearConsultor" Height="450" Width="800"
+        ResizeMode="NoResize">
+    <StackPanel Margin="10">
+        <Label Content="Nombres"/>
+        <TextBox Text="{Binding NuevoConsultor.Nombres, Mode=OneWayToSource}"/>
+        <Label Content="Apellidos"/>
+        <TextBox Text="{Binding NuevoConsultor.Apellidos, Mode=OneWayToSource}"/>
+        <Label Content="Rut"/>
+        <TextBox Text="{Binding NuevoConsultor.Id, Mode=OneWayToSource}"/>
+        <Label Content="Contraseña"/>
+        <TextBox Text="{Binding NuevoConsultor.Contrasena, Mode=OneWayToSource}"/>
+        <Label Content="Correo"/>
+        <TextBox Text="{Binding NuevoConsultor.Correo, Mode=OneWayToSource}"/>
+        <Label Content="Teléfono"/>
+        <TextBox Text="{Binding NuevoConsultor.Telefono, Mode=OneWayToSource}"/>
+        <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+            <Button x:Name="BtnCancelar" 
+                    Content="Cancelar" 
+                    Padding="5" 
+                    Margin="10" 
+                    Width="70"
+                    Click="BtnCancelar_OnClick"/>
+            <Button x:Name="BtnAceptar" 
+                    Content="Aceptar" 
+                    Padding="5" 
+                    Margin="10" 
+                    Width="70"
+                    Click="BtnAceptar_OnClick"
+                    Command="{Binding AgregarCommand}"/>
         </StackPanel>
-    </Grid>
+    </StackPanel>
 </Window>

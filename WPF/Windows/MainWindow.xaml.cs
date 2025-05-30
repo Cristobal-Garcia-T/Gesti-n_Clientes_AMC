@@ -1,7 +1,9 @@
 ﻿using System.Windows;
+using System.Windows.Navigation;
 using ControladoresWPF;
 using Microsoft.Extensions.DependencyInjection;
 using Servicios;
+using WPF.Pages;
 using WPF.Windows.Modals;
 
 namespace WPF.Windows
@@ -14,8 +16,6 @@ namespace WPF.Windows
             var servicio = App.AppHost.Services.GetRequiredService<ServicioAdministradores>();
             var viewModel = new MainWindowViewModel(servicio);
             
-            InitializeComponent();
-
             //Se verifica si existe algún registro en la tabla "Administradores"
             if (viewModel.AdminNoExistente())
             {
@@ -23,6 +23,8 @@ namespace WPF.Windows
                 if (resultado == false)
                     Application.Current.Shutdown();
             }
+            InitializeComponent();
+            MainFrame.Content = new Login();
         }
     }
 }

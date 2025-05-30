@@ -5,7 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:WPF.UserControls"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="800">
+             d:DesignHeight="300" d:DesignWidth="800"
+             xmlns:vm="clr-namespace:ControladoresWPF.UserControls;assembly=ControladoresWPF"
+             d:DataContext="{d:DesignInstance Type=vm:GestionAdminViewModel, IsDesignTimeCreatable=True}">
+    
     <Grid Margin="10">
         <DataGrid ItemsSource="{Binding ListaAdministradores}"
                   AutoGenerateColumns="False"

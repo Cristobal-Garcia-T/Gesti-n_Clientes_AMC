@@ -3,7 +3,7 @@ using System.Text;
 
 namespace AccesoDB.Modelos
 {
-    public class Administrador : Persona
+    public class Administrador : Persona, IUsuario
     {
         private string? _contrasena;
         public string? Contrasena

@@ -29,6 +29,7 @@ namespace WPF
                 services.AddScoped<ServicioDocumentos>();
                 services.AddScoped<ServicioEmpresas>();
                 services.AddScoped<ServicioTareas>();
+                services.AddScoped<ServicioLogin>();
             }).Build();
 
             BdCreada();

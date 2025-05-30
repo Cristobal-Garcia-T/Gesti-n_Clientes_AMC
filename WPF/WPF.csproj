@@ -15,7 +15,6 @@
 
   <ItemGroup>
     <Folder Include="Estilos\" />
-    <Folder Include="Pages\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -40,6 +39,16 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Windows\Formularios\FormularioCrearAdmin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <XamlRuntime>Wpf</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserControls\GestionClientes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <XamlRuntime>Wpf</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\Login.xaml">
       <Generator>MSBuild:Compile</Generator>
       <XamlRuntime>Wpf</XamlRuntime>
       <SubType>Designer</SubType>

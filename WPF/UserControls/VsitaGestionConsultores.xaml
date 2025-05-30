@@ -5,6 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:WPF.UserControls"
              mc:Ignorable="d"
+             xmlns:vm="clr-namespace:ControladoresWPF.UserControls;assembly=ControladoresWPF"
+             d:DataContext="{d:DesignInstance Type=vm:GestionConsultoresViewModel, IsDesignTimeCreatable=True}"
              d:DesignHeight="300" d:DesignWidth="800">
 
     <Grid Margin="10">
@@ -17,11 +19,15 @@
                   SelectedItem="{Binding ConsultorSeleccionado}"
                   AutoGenerateColumns="False"
                   CanUserAddRows="False"
-                  Margin="0,0,0,10">
+                  ColumnWidth="*">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ID" Binding="{Binding Id}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Usuario" Binding="{Binding Nombres}"/>
-                <DataGridTextColumn Header="Contraseña" Binding="{Binding Contrasena}"/>
+                <DataGridTextColumn Header="Rut" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombres}" />
+                <DataGridTextColumn Header="Apellido" Binding="{Binding Apellidos}" />
+                <DataGridTextColumn Header="Correo" Binding="{Binding Correo}" />
+                <DataGridTextColumn Header="Teléfono" Binding="{Binding Telefono}" />
+                <DataGridTextColumn Header="N° Clientes" Binding="{Binding NumeroClientes}" />
+                <DataGridTextColumn Header="N° Casos" Binding="{Binding NumeroCasos}" />
             </DataGrid.Columns>
         </DataGrid>
 

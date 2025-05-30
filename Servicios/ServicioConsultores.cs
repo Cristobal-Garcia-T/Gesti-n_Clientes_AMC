@@ -1,5 +1,6 @@
 ﻿using AccesoDB;
 using AccesoDB.Modelos;
+using Microsoft.EntityFrameworkCore;
 
 namespace Servicios
 {
@@ -16,19 +17,18 @@ namespace Servicios
             return _contexto.Consultores.ToList();
         }
 
-        public void Crear(Consultor consultor)
+        public void AgregarConsultor(Consultor consultor)
         {
             _contexto.Consultores.Add(consultor);
             _contexto.SaveChanges();
         }
 
-        public void Actualizar(Consultor consultor)
+        public void Actualizar(Consultor consultorSeleccionado)
         {
-            var existente = _contexto.Consultores.Find(consultor.Id);
+            
+            var existente = _contexto.Consultores.Find(consultorSeleccionado.Id);
             if (existente != null)
             {
-                existente.Nombres = consultor.Nombres;
-                existente.Contrasena = consultor.Contrasena;
                 _contexto.SaveChanges();
             }
         }
