@@ -1,0 +1,54 @@
+﻿<Window x:Class="Proyecto_Ing_software.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Proyecto_Ing_software"
+        mc:Ignorable="d"
+        Title="Casos" Height="600" Width="1200"
+        MinWidth="1200" MinHeight="600"
+        WindowStartupLocation="CenterScreen"
+        >
+
+
+    <Grid Margin="0,0,0,-6">
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="473*"/>
+            <RowDefinition Height="53*"/>
+            <RowDefinition Height="Auto" MinHeight="10.019"/>
+
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.Row="0" Margin="10,10,10,10" LastChildFill="False">
+            <Label Content="Clientes" FontSize="18" FontWeight="Bold" VerticalAlignment="Center" />
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="10,0,0,0">
+                <Button Content="Nuevo Cliente" Width="120" Margin="5,0"/>
+                <Button Content="Modificar Cliente" Width="140" Margin="5,0"/>
+                <Button Content="Eliminar Cliente" Width="120" Margin="5,0"/>
+            </StackPanel>
+        </DockPanel>
+
+        <!-- DataGrid que se expande completamente -->
+        <DataGrid x:Name="CasosDataGrid" Grid.Row="1" Margin="20,10,0,10"
+                  AutoGenerateColumns="False"
+                  ColumnWidth="*"
+                  CanUserResizeColumns="True"
+                  HeadersVisibility="Column"
+                  IsReadOnly="True">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="50"/>
+                <DataGridTextColumn Header="Personalidad Tributaria" Binding="{Binding PersonalidadTributaria}" Width="2*" />
+                <DataGridTextColumn Header="Giro" Binding="{Binding Giro}" Width="1.5*" />
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="1.5*" />
+                <DataGridTextColumn Header="RUT" Binding="{Binding Rut}" Width="150"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="2*" />
+                <DataGridTextColumn Header="Teléfono" Binding="{Binding Telefono}" Width="1.2*" />
+                <DataGridTextColumn Header="Dirección" Binding="{Binding Direccion}" Width="2*" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Volver" HorizontalAlignment="Left" Margin="20,0,0,0" Grid.Row="2" VerticalAlignment="Center" Height="36" Width="85" Click="Button_Click_1"/>
+    </Grid>
+</Window>
