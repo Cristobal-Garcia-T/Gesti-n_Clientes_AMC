@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace AccesoDB.Modelos
+﻿namespace AccesoDB.Modelos
 {
     public class Beneficiario : Persona
     {

@@ -1,5 +1,4 @@
-﻿using AccesoDB.Modelos;
-using Servicios;
+﻿using Servicios;
 
 namespace ControladoresWPF;
 

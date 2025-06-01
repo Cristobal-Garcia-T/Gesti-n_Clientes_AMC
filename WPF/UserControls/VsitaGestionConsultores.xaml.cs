@@ -1,5 +1,5 @@
 using System.Windows;
-using ControladoresWPF;
+using CommunityToolkit.Mvvm.Messaging;
 using ControladoresWPF.UserControls;
 using Microsoft.Extensions.DependencyInjection;
 using Servicios;
@@ -13,7 +13,8 @@ namespace WPF.UserControls
         {
             InitializeComponent();
             var servico = App.AppHost.Services.GetRequiredService<ServicioConsultores>();
-            DataContext = new GestionConsultoresViewModel(servico);
+            var mensajero = App.AppHost.Services.GetRequiredService<IMessenger>();
+            DataContext = new GestionConsultoresViewModel(servico, mensajero);
         }
 
         private void BotonCrear_OnClick(object sender, RoutedEventArgs e)

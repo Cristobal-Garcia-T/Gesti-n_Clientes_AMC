@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using CommunityToolkit.Mvvm.Messaging;
 using ControladoresWPF.Windows.Formularios;
 using Microsoft.Extensions.DependencyInjection;
 using Servicios;
@@ -10,7 +11,8 @@ public partial class FormularioCrearConsultor
     public FormularioCrearConsultor()
     {
         var servicio = App.AppHost.Services.GetRequiredService<ServicioConsultores>();
-        DataContext = new FormularioCrearConsultorViewModel(servicio);
+        var mensajero = App.AppHost.Services.GetRequiredService<IMessenger>();
+        DataContext = new FormularioCrearConsultorViewModel(servicio, mensajero);
         InitializeComponent();
     }
 

@@ -11,7 +11,7 @@ public class ServicioLogin
     public IUsuario? UsuarioActual { get; set; }
     public bool Autenticado => UsuarioActual != null;
     
-    public event EventHandler<IUsuario?> UsuarioActualChanged;
+    public event EventHandler<IUsuario?>? UsuarioActualChanged;
 
     public ServicioLogin(ContextoDb contexto)
     {

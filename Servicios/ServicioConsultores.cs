@@ -1,6 +1,5 @@
 ﻿using AccesoDB;
 using AccesoDB.Modelos;
-using Microsoft.EntityFrameworkCore;
 
 namespace Servicios
 {

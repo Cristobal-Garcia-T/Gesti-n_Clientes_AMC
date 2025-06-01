@@ -1,11 +1,10 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using AccesoDB;
+using CommunityToolkit.Mvvm.Messaging;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Servicios;
-using WPF.Windows;
 
 namespace WPF
 {
@@ -30,6 +29,10 @@ namespace WPF
                 services.AddScoped<ServicioEmpresas>();
                 services.AddScoped<ServicioTareas>();
                 services.AddScoped<ServicioLogin>();
+                
+                //Agrega una implementación de IMessenger para ser usado en la comunicación interna de las capas
+                services.AddSingleton<IMessenger, WeakReferenceMessenger>();
+
             }).Build();
 
             BdCreada();

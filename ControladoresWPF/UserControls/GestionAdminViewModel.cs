@@ -1,8 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Security.Cryptography;
-using System.Text;
 using AccesoDB.Modelos;
 using Servicios;
 

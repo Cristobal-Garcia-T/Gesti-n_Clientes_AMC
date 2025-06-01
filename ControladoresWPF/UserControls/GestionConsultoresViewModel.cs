@@ -1,6 +1,8 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using AccesoDB.Modelos;
+using CommunityToolkit.Mvvm.Messaging;
+using ControladoresWPF.Mensajes;
 using Servicios;
 
 namespace ControladoresWPF.UserControls
@@ -8,6 +10,7 @@ namespace ControladoresWPF.UserControls
     public class GestionConsultoresViewModel : INotifyPropertyChanged
     {
         private readonly ServicioConsultores _servicioConsultores;
+        private readonly IMessenger _messenger;
         private Consultor? _consultorSeleccionado;
         public Consultor? ConsultorSeleccionado
         {
@@ -22,15 +25,20 @@ namespace ControladoresWPF.UserControls
         public RelayCommand ActualizarCommand => new(_ => Actualizar(), _ => ConsultorSeleccionado != null);
         public RelayCommand EliminarCommand => new(_ => Eliminar(), _ => ConsultorSeleccionado != null);
 
-        public GestionConsultoresViewModel(ServicioConsultores servicioConsultores)
+        public GestionConsultoresViewModel(ServicioConsultores servicioConsultores, IMessenger messenger)
         {
+            _messenger = messenger;
             _servicioConsultores = servicioConsultores;
             Consultores = new ObservableCollection<Consultor>(_servicioConsultores.ObtenerTodos());
+            
+            _messenger.Register<MensajeNuevoConsultor>(this, (receptor, manipulador) =>
+            {
+                Consultores.Add(manipulador.Value);
+            });
         }
         
         private void Actualizar()
         {
-            throw new NotImplementedException();
             _servicioConsultores.Actualizar(ConsultorSeleccionado!);
         }
 

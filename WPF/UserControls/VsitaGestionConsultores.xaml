@@ -19,7 +19,8 @@
                   SelectedItem="{Binding ConsultorSeleccionado}"
                   AutoGenerateColumns="False"
                   CanUserAddRows="False"
-                  ColumnWidth="*">
+                  ColumnWidth="*" 
+                  IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Rut" Binding="{Binding Id}" />
                 <DataGridTextColumn Header="Nombre" Binding="{Binding Nombres}" />
