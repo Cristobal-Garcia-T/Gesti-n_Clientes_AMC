@@ -20,8 +20,7 @@
                   ColumnWidth="*">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Rut" Binding="{Binding Id}" />
-                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombres}" />
-                <DataGridTextColumn Header="Apellido" Binding="{Binding Apellidos}" />
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />
                 <DataGridTextColumn Header="Correo" Binding="{Binding Correo}" />
                 <DataGridTextColumn Header="Teléfono" Binding="{Binding Telefono}" />
             </DataGrid.Columns>

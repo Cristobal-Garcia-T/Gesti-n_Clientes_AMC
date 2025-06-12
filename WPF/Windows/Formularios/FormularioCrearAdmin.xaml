@@ -10,10 +10,8 @@
         Title="Registrar Administrador" Height="400" Width="300"
         ResizeMode="NoResize">
         <StackPanel Margin="10">
-                <Label Content="Nombres"/>
-                <TextBox Text="{Binding NuevoAdministrador.Nombres, Mode=OneWayToSource}"/>
-                <Label Content="Apellidos"/>
-                <TextBox Text="{Binding NuevoAdministrador.Apellidos, Mode=OneWayToSource}"/>
+                <Label Content="Nombre"/>
+                <TextBox Text="{Binding NuevoAdministrador.Nombre, Mode=OneWayToSource}"/>
                 <Label Content="Rut"/>
                 <TextBox Text="{Binding NuevoAdministrador.Id, Mode=OneWayToSource}"/>
                 <Label Content="Contraseña"/>

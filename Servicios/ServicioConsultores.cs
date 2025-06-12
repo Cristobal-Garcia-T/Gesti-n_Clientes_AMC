@@ -3,7 +3,7 @@ using AccesoDB.Modelos;
 
 namespace Servicios
 {
-    public class ServicioConsultores
+    public class ServicioConsultores : IServicio<Consultor>
     {
          private readonly ContextoDb _contexto;
 
@@ -11,20 +11,21 @@ namespace Servicios
         {
             _contexto = contexto;
         }
-        public List<Consultor> ObtenerTodos()
+
+        public List<Consultor> RecuperarTodos() => _contexto.Consultores.ToList();
+        public Consultor? RecuperarPorId(string id)
         {
-            return _contexto.Consultores.ToList();
+            throw new NotImplementedException();
         }
 
-        public void AgregarConsultor(Consultor consultor)
+        public void Agregar(Consultor consultor)
         {
             _contexto.Consultores.Add(consultor);
             _contexto.SaveChanges();
         }
 
-        public void Actualizar(Consultor consultorSeleccionado)
+        public void Editar(Consultor consultorSeleccionado)
         {
-            
             var existente = _contexto.Consultores.Find(consultorSeleccionado.Id);
             if (existente != null)
             {

@@ -1,7 +1,10 @@
-﻿namespace AccesoDB.Modelos
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace AccesoDB.Modelos
 {
-    public class Beneficiario : Modelo
+    public class Beneficiario : IModelo
     {
+        [Key] public required string Id { get; set; } = string.Empty;
         public required string Nombre { get; set; } = string.Empty;
         public required int Telefono { get; set; }
         public required string Direccion { get; set; } = string.Empty;
@@ -14,5 +17,6 @@
         public required string VigenciaVisa { get; set; } = string.Empty;
         public required string Ocupacion { get; set; } = string.Empty;
         public required string PaisResidencia { get; set; } = string.Empty;
+        
     }
 }

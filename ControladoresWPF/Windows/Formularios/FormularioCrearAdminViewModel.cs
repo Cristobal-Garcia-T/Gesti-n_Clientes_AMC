@@ -26,6 +26,6 @@ public class FormularioCrearAdminViewModel
     public void AgregarAdministrador()
     {
         NuevoAdministrador.CodigoRecuperación = new Random().Next(1000, 9999);
-        _servicioAdministradores.AgregarAdministrador(NuevoAdministrador);
+        _servicioAdministradores.Agregar(NuevoAdministrador);
     }
 }

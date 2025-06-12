@@ -2,8 +2,7 @@
 
 namespace AccesoDB.Modelos;
 
-public class Modelo
+public interface IModelo
 {
-    [Key]
-    public required string Id { get; set; }
+    string Id { get; set; }
 }

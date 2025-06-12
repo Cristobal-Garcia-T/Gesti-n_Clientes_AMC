@@ -1,9 +1,12 @@
-﻿namespace AccesoDB.Modelos;
+﻿using System.ComponentModel.DataAnnotations;
 
-public class Usuario : Modelo
+namespace AccesoDB.Modelos;
+
+public class Usuario : IModelo
 {
-    public required string Nombre { get; set; }
-    public required string Contrasena { get; set; }
-    public required string Correo { get; set; }
+    [Key] public required string Id { get; set; } = string.Empty;
+    public required string Nombre { get; set; } = string.Empty;
+    public required string Contrasena { get; set; } = string.Empty;
+    public required string Correo { get; set; } = string.Empty;
     public required int Telefono { get; set; }
 }

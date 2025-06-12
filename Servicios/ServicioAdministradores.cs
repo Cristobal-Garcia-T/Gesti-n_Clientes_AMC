@@ -3,7 +3,7 @@ using AccesoDB.Modelos;
 
 namespace Servicios;
 
-public class ServicioAdministradores
+public class ServicioAdministradores : IServicio<Administrador>
 {
     //Servico encargardo de operaciones CRUD sobre tabla "Administradores"
     private readonly ContextoDb _contexto;
@@ -12,17 +12,28 @@ public class ServicioAdministradores
     {
         _contexto = contexto;
     }
-
-    //Recupera todos los elementos de la tabla y los devuelve como una lista
     public List<Administrador> RecuperarTodos() => _contexto.Administradores.ToList();
-
-    //Vetifica si la tabla está vacía
-    public bool TablaVacia() => !_contexto.Administradores.Any();
-
-    public void AgregarAdministrador(Administrador admin)
+    public Administrador? RecuperarPorId(string id)
     {
-        //Recibe un objeto admin y lo regsitra en la tabla, EF se encarga de las transformaciones necesarias
+        throw new NotImplementedException();
+    }
+
+    public void Agregar(Administrador admin)
+    {
         _contexto.Administradores.Add(admin);
         _contexto.SaveChanges();
     }
+
+    public void Editar(Administrador modelo)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Eliminar(string id)
+    {
+        throw new NotImplementedException();
+    }
+
+    //Vetifica si la tabla está vacía
+    public bool TablaVacia() => !_contexto.Administradores.Any();
 }

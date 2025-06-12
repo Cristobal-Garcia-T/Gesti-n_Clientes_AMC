@@ -29,7 +29,7 @@ namespace ControladoresWPF.UserControls
         {
             _messenger = messenger;
             _servicioConsultores = servicioConsultores;
-            Consultores = new ObservableCollection<Consultor>(_servicioConsultores.ObtenerTodos());
+            Consultores = new ObservableCollection<Consultor>(_servicioConsultores.RecuperarTodos());
             
             _messenger.Register<MensajeNuevoConsultor>(this, (receptor, manipulador) =>
             {
@@ -39,7 +39,7 @@ namespace ControladoresWPF.UserControls
         
         private void Actualizar()
         {
-            _servicioConsultores.Actualizar(ConsultorSeleccionado!);
+            _servicioConsultores.Editar(ConsultorSeleccionado!);
         }
 
         private void Eliminar()

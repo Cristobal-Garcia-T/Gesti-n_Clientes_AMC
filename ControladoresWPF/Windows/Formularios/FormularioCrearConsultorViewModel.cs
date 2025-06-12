@@ -28,7 +28,7 @@ public class FormularioCrearConsultorViewModel
     }
     public void AgregarConsultor()
     {
-        _servicioConsultores.AgregarConsultor(NuevoConsultor);
+        _servicioConsultores.Agregar(NuevoConsultor);
         _messenger.Send(new MensajeNuevoConsultor(NuevoConsultor));
     }
 }

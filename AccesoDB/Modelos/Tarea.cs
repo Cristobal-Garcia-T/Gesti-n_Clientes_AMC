@@ -1,7 +1,10 @@
-﻿namespace AccesoDB.Modelos
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace AccesoDB.Modelos
 {
-    public class Tarea : Modelo
+    public class Tarea : IModelo
     {
+        [Key] public required string Id { get; set; } = string.Empty;
         public required string IdConsultor { get; set; } = string.Empty;
         public int? IdEvento { get; set; }
         public int? IdCaso { get; set; }
