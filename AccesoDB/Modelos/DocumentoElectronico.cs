@@ -1,16 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace AccesoDB.Modelos
+﻿namespace AccesoDB.Modelos
 {
-    public class DocumentoElectronico
+    public class DocumentoElectronico : Modelo
     {
-        [Key]
-        public int Id { get; set; }
-        public string? IdCaso { get; set; }
-        public string? Nombre { get; set; }
-        public string? Extension { get; set; }
-        public string? Direccion { get; set; }
-        public DateTime FechaCreacion { get; set; }
+        public required string IdCaso { get; set; } = string.Empty;
+        public required string Nombre { get; set; } = string.Empty;
+        public required string Extension { get; set; } = string.Empty;
+        public required string Direccion { get; set; } = string.Empty;
+        public DateTime FechaCreacion { get; set; } = DateTime.Now;
         public float Tamaño { get; set; }
     }
 }

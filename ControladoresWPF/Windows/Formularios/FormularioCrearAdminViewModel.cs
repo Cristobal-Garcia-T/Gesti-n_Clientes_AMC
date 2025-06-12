@@ -6,7 +6,17 @@ namespace ControladoresWPF.Windows.Formularios;
 public class FormularioCrearAdminViewModel
 {
     private readonly ServicioAdministradores _servicioAdministradores;
-    public Administrador NuevoAdministrador { get; set; } = new();
+
+    public Administrador NuevoAdministrador { get; set; } = new Administrador
+    {
+        Id = "",
+        Nombre = "",
+        Contrasena = "",
+        Correo = "",
+        Telefono = 0,
+        CodigoRecuperación = 0
+    };
+
     public RelayCommand AgregarCommand => new(_ => AgregarAdministrador());
     public FormularioCrearAdminViewModel(ServicioAdministradores servicioAdministradores)
     {

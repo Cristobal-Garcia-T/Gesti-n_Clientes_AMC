@@ -8,19 +8,18 @@ namespace Servicios;
 public class ServicioLogin
 {
     private readonly ContextoDb _contexto;
-    public IUsuario? UsuarioActual { get; set; }
+    public Usuario? UsuarioActual { get; set; }
     public bool Autenticado => UsuarioActual != null;
     
-    public event EventHandler<IUsuario?>? UsuarioActualChanged;
+    public event EventHandler<Usuario?>? UsuarioActualChanged;
 
     public ServicioLogin(ContextoDb contexto)
     {
         _contexto = contexto;
     }
     
-    public IUsuario? Login(string? id, string? pass, string? tipo)
+    public Usuario? Login(string? id, string? pass, string? tipo)
     {
-        pass = Encriptar(pass);
         if (tipo == "Administrador")
         {
             var adminBuscado = _contexto.Administradores.Find(id);
@@ -50,19 +49,5 @@ public class ServicioLogin
     {
         UsuarioActual = null;
         UsuarioActualChanged?.Invoke(this, null);
-    }
-
-    private string Encriptar(string? pass)
-    {
-        var hash = String.Empty;
-        if (pass != null)
-        {
-            byte[] encriptado = SHA256.HashData(Encoding.UTF8.GetBytes(pass));
-            foreach (byte b in encriptado)
-            {
-                hash += b.ToString("x2");
-            }
-        }
-        return hash;
     }
 }

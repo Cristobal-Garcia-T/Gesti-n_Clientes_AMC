@@ -11,7 +11,7 @@ public class LoginViewModel
         _servicioLogin = servicioLogin;
     }
 
-    public IUsuario? Login(string? id, string? pass, string? tipo)
+    public Usuario? Login(string? id, string? pass, string? tipo)
     {
         return _servicioLogin.Login(id, pass, tipo);
     }

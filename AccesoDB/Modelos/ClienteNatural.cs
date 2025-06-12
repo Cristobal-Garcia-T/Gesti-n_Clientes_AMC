@@ -1,8 +1,7 @@
 ﻿namespace AccesoDB.Modelos
 {
-    public class ClienteNatural : Persona
+    public class ClienteNatural : Cliente
     {
-        public string? IdConsultor { get; set; }
-        public int NumeroCasos { get; set; }
+        public required string Nombre { get; set; } = string.Empty;
     }
 }

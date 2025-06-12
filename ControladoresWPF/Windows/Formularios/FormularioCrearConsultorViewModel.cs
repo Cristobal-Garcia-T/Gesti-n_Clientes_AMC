@@ -9,7 +9,16 @@ public class FormularioCrearConsultorViewModel
 {
     private readonly ServicioConsultores _servicioConsultores;
     private readonly IMessenger _messenger;
-    public Consultor NuevoConsultor { get; set; } = new();
+    public Consultor NuevoConsultor { get; set; } = new Consultor
+    {
+        Id = "",
+        Nombre = "",
+        Contrasena = "",
+        Correo = "",
+        Telefono = 0,
+        NumeroClientes = 0,
+        NumeroCasos = 0
+    };
     public RelayCommand AgregarCommand => new(_ => AgregarConsultor());
 
     public FormularioCrearConsultorViewModel(ServicioConsultores servicioConsultores, IMessenger messenger)
