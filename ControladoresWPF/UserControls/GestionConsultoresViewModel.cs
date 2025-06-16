@@ -1,5 +1,4 @@
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using AccesoDB.Modelos;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Messaging;
@@ -26,13 +25,29 @@ namespace ControladoresWPF.UserControls
             
             _messenger.Register<MensajeNuevoConsultor>(this, (receptor, manipulador) =>
             {
-                Consultores.Add(manipulador.Value);
+                if (Consultores.Contains(manipulador.Value))
+                    EditarConsultor(manipulador.Value);
+                else
+                    AgregarConsultor(manipulador.Value);
             });
             
             _messenger.Register<MensajeSolicitarConsultorSeleccionado>(this, (receptor, manipulador) =>
             {
                 manipulador.Respuesta?.Invoke(ConsultorSeleccionado!);
             });
+        }
+
+        private void AgregarConsultor(Consultor consultor)
+        {
+            Consultores.Add(consultor);
+            _servicioConsultores.Agregar(consultor);
+        }
+
+        private void EditarConsultor(Consultor consultor)
+        {
+            Consultores.Remove(consultor);
+            Consultores.Add(consultor);
+            _servicioConsultores.Editar(consultor);
         }
 
         private void Eliminar()

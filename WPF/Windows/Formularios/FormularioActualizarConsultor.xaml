@@ -26,8 +26,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" Content="Nombre"/>
-                <TextBox Grid.Row="1" Text="{Binding NuevoConsultor.Nombre, Mode=OneWayToSource}"/>
-                <TextBlock Grid.Row="1" Text="{Binding ConsultorSeleccionado.Nombre}" Margin="5,0,0,0" FontWeight="Light" Foreground="DimGray"/>
+                <TextBox Grid.Row="1" Text="{Binding ConsultorSeleccionado.Nombre, Mode=TwoWay}"/>
             </Grid>
             
             <Grid Grid.Row="1">
@@ -36,9 +35,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" Content="Rut"/>
-                <TextBox Grid.Row="1" Text="{Binding NuevoConsultor.Id, Mode=OneWayToSource}"/>
-                <TextBlock Grid.Row="1" Text="{Binding ConsultorSeleccionado.Id}" Margin="5,0,0,0" FontWeight="Light" Foreground="DimGray"/>
-            </Grid>
+                <TextBox Grid.Row="1" Text="{Binding ConsultorSeleccionado.Rut, Mode=TwoWay}"/></Grid>
             
             <Grid Grid.Row="2">
                 <Grid.RowDefinitions>
@@ -46,9 +43,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" Content="Contraseña"/>
-                <TextBox Grid.Row="1" Text="{Binding NuevoConsultor.Contrasena, Mode=OneWayToSource}"/>
-                <TextBlock Grid.Row="1" Text="{Binding ConsultorSeleccionado.Contrasena}" Margin="5,0,0,0" FontWeight="Light" Foreground="DimGray"/>
-            </Grid>
+                <TextBox Grid.Row="1" Text="{Binding ConsultorSeleccionado.Contrasena, Mode=TwoWay}"/></Grid>
             
             <Grid Grid.Row="3">
                 <Grid.RowDefinitions>
@@ -56,9 +51,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" Content="Correo"/>
-                <TextBox Grid.Row="1" Text="{Binding NuevoConsultor.Correo, Mode=OneWayToSource}"/>
-                <TextBlock Grid.Row="1" Text="{Binding ConsultorSeleccionado.Correo}" Margin="5,0,0,0" FontWeight="Light" Foreground="DimGray"/>
-            </Grid>
+                <TextBox Grid.Row="1" Text="{Binding ConsultorSeleccionado.Correo, Mode=TwoWay}"/></Grid>
             
             <Grid Grid.Row="4">
                 <Grid.RowDefinitions>
@@ -66,8 +59,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" Content="Teléfono"/>
-                <TextBox Grid.Row="1" Text="{Binding NuevoConsultor.Telefono, Mode=OneWayToSource}"/>
-                <TextBlock Grid.Row="1" Text="{Binding ConsultorSeleccionado.Telefono}" Margin="5,0,0,0" FontWeight="Light" Foreground="DimGray"/>
+                <TextBox Grid.Row="1" Text="{Binding ConsultorSeleccionado.Telefono, Mode=TwoWay}"/>
             </Grid>
         </Grid>
         

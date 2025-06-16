@@ -2,20 +2,21 @@
 {
     public class Beneficiario : IModelo
     {
-        public required int Id { get; set; }
-        public required string Rut { get; set; }
-        public required string Nombre { get; set; }
-        public required int Telefono { get; set; }
-        public required string Direccion { get; set; }
-        public required string Correo { get; set; }
-        public required string Genero { get; set; }
-        public required string Nacionalidad { get; set; }
-        public required DateTime FechaEmisionPasaporte { get; set; }
-        public required DateTime FechaVencimientoPasaporte { get; set; }
-        public required string Permanencia { get; set; }
-        public required string VigenciaVisa { get; set; }
-        public required string Ocupacion { get; set; }
-        public required string PaisResidencia { get; set; }
+        public int Id { get; set; }
+        public string Rut { get; set; }
+        public string Nombre { get; set; }
+        public int Telefono { get; set; }
+        public string Direccion { get; set; }
+        public string Correo { get; set; }
+        public string Genero { get; set; }
+        public string Nacionalidad { get; set; }
+        public DateTime FechaEmisionPasaporte { get; set; }
+        public DateTime FechaVencimientoPasaporte { get; set; }
+        public string Permanencia { get; set; }
+        public string VigenciaVisa { get; set; }
+        public string Ocupacion { get; set; }
+        public string PaisResidencia { get; set; }
         
+        public List<Caso> Casos { get; set; }
     }
 }

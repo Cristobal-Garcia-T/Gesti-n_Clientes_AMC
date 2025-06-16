@@ -10,9 +10,8 @@ public partial class FormularioActualizarConsultor : Window
 {
     public FormularioActualizarConsultor()
     {
-        var servicio = App.AppHost.Services.GetRequiredService<ServicioConsultores>();
         var mensajero = App.AppHost.Services.GetRequiredService<IMessenger>();
-        DataContext = new FormularioActualizarConsultorViewModel(servicio, mensajero);
+        DataContext = new FormularioActualizarConsultorViewModel(mensajero);
         InitializeComponent();
     }
 

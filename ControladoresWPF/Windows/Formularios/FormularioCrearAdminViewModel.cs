@@ -7,16 +7,7 @@ public class FormularioCrearAdminViewModel
 {
     private readonly ServicioAdministradores _servicioAdministradores;
 
-    public Administrador NuevoAdministrador { get; set; } = new Administrador
-    {
-        Id = 0,
-        Rut = "",
-        Nombre = "",
-        Contrasena = "",
-        Correo = "",
-        Telefono = 0,
-        CodigoRecuperación = 0
-    };
+    public Administrador NuevoAdministrador { get; set; } = new();
 
     public RelayCommand AgregarCommand => new(_ => AgregarAdministrador());
     public FormularioCrearAdminViewModel(ServicioAdministradores servicioAdministradores)

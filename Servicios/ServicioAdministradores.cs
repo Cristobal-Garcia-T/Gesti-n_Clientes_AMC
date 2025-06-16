@@ -24,7 +24,7 @@ public class ServicioAdministradores : IServicio<Administrador>
         _contexto.SaveChanges();
     }
 
-    public void Editar(int id, Administrador modelo)
+    public void Editar(Administrador modelo)
     {
         throw new NotImplementedException();
     }

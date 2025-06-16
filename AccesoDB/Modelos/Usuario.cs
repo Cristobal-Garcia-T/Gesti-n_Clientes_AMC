@@ -2,10 +2,10 @@
 
 public class Usuario : IModelo
 {
-    public required int Id { get; set; }
-    public required string Rut { get; set; }
-    public required string Nombre { get; set; }
-    public required string Contrasena { get; set; }
-    public required string Correo { get; set; }
-    public required int Telefono { get; set; }
+    public int Id { get; set; }
+    public string Rut { get; set; }
+    public string Nombre { get; set; }
+    public string Contrasena { get; set; }
+    public string Correo { get; set; }
+    public int Telefono { get; set; }
 }

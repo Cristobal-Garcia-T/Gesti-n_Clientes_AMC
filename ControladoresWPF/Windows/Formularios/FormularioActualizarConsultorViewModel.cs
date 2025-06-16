@@ -7,44 +7,33 @@ namespace ControladoresWPF.Windows.Formularios;
 
 public class FormularioActualizarConsultorViewModel
 {
-    private IServicio<Consultor> _servicio;
+    private IMessenger _messenger;
     public RelayCommand EditarCommand => new(_ => EditarConsultor());
-    public Consultor ConsultorSeleccionado { get; set; } = new Consultor
-    {
-        Id = 0,
-        Rut = "",
-        Nombre = "",
-        Contrasena = "",
-        Correo = "",
-        Telefono = 0,
-        NumeroClientes = 0,
-        NumeroCasos = 0
-    };
-    
-    public Consultor NuevoConsultor { get; set; } = new Consultor
-    {
-        Id = 0,
-        Rut = "",
-        Nombre = "",
-        Contrasena = "",
-        Correo = "",
-        Telefono = 0,
-        NumeroClientes = 0,
-        NumeroCasos = 0
-    };
+    public Consultor ConsultorSeleccionado { get; set; } = new();
 
-    public FormularioActualizarConsultorViewModel(IServicio<Consultor> servicio, IMessenger mensaje)
+    public FormularioActualizarConsultorViewModel(IMessenger mensaje)
     {
-        _servicio = servicio;
-        mensaje.Send(new MensajeSolicitarConsultorSeleccionado(respuesta =>
+        _messenger = mensaje;
+        _messenger.Send(new MensajeSolicitarConsultorSeleccionado(respuesta =>
         {
-            ConsultorSeleccionado = respuesta;
-            NuevoConsultor = respuesta;
+            ConsultorSeleccionado = new Consultor
+            {
+                Id = respuesta.Id,
+                Rut = respuesta.Rut,
+                Nombre = respuesta.Nombre,
+                Contrasena = respuesta.Contrasena,
+                Correo = respuesta.Correo,
+                Telefono = respuesta.Telefono,
+                NumeroCasos = respuesta.NumeroCasos,
+                NumeroClientes = respuesta.NumeroClientes,
+                Casos = respuesta.Casos,
+                Clientes = respuesta.Clientes
+            };
         }));
     }
 
     public void EditarConsultor()
     {
-        _servicio.Editar(ConsultorSeleccionado.Id, NuevoConsultor);
+        _messenger.Send(new MensajeNuevoConsultor(ConsultorSeleccionado));
     }
-}
+}   

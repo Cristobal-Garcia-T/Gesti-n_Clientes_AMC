@@ -19,7 +19,7 @@ public class ServicioEmpresas : IServicio<Empresa>
         throw new NotImplementedException();
     }
 
-    public void Editar(int id, Empresa modelo)
+    public void Editar(Empresa modelo)
     {
         throw new NotImplementedException();
     }

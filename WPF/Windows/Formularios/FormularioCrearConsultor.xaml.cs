@@ -10,9 +10,8 @@ public partial class FormularioCrearConsultor
 {
     public FormularioCrearConsultor()
     {
-        var servicio = App.AppHost.Services.GetRequiredService<ServicioConsultores>();
         var mensajero = App.AppHost.Services.GetRequiredService<IMessenger>();
-        DataContext = new FormularioCrearConsultorViewModel(servicio, mensajero);
+        DataContext = new FormularioCrearConsultorViewModel(mensajero);
         InitializeComponent();
     }
 

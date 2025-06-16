@@ -24,12 +24,17 @@ namespace Servicios
             _contexto.SaveChanges();
         }
 
-        public void Editar(int id, Consultor nuevoConsultor)
+        public void Editar(Consultor nuevoConsultor)
         {
-            var existente = _contexto.Consultores.Find(id);
+            var existente = _contexto.Consultores.Find(nuevoConsultor.Id);
             if (existente != null)
             {
-                existente = nuevoConsultor;
+                existente.Nombre = nuevoConsultor.Nombre;
+                existente.Rut = nuevoConsultor.Rut;
+                existente.Contrasena = nuevoConsultor.Contrasena;
+                existente.Telefono = nuevoConsultor.Telefono;
+                existente.Correo = nuevoConsultor.Correo;
+                
                 _contexto.SaveChanges();
             }
         }

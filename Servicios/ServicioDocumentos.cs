@@ -19,7 +19,7 @@ public class ServicioDocumentos : IServicio<DocumentoElectronico>
         throw new NotImplementedException();
     }
 
-    public void Editar(int id, DocumentoElectronico modelo)
+    public void Editar(DocumentoElectronico modelo)
     {
         throw new NotImplementedException();
     }

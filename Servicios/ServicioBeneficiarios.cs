@@ -19,7 +19,7 @@ public class ServicioBeneficiarios : IServicio<Beneficiario>
         throw new NotImplementedException();
     }
 
-    public void Editar(int id, Beneficiario modelo)
+    public void Editar(Beneficiario modelo)
     {
         throw new NotImplementedException();
     }

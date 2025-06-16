@@ -2,12 +2,14 @@
 {
     public class DocumentoElectronico : IModelo
     {
-        public required int Id { get; set; }
-        public required int IdCaso { get; set; }
-        public required string Nombre { get; set; }
-        public required string Extension { get; set; } 
-        public required string Direccion { get; set; }
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+        public string Extension { get; set; } 
+        public string Direccion { get; set; }
         public DateTime FechaCreacion { get; set; } = DateTime.Now;
         public float Tamaño { get; set; }
+        
+        public int CasoId { get; set; }
+        public Caso Caso { get; set; }
     }
 }

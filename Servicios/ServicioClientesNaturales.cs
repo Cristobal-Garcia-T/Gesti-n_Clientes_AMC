@@ -19,7 +19,7 @@ public class ServicioClientesNaturales : IServicio<ClienteNatural>
         throw new NotImplementedException();
     }
 
-    public void Editar(int id, ClienteNatural modelo)
+    public void Editar(ClienteNatural modelo)
     {
         throw new NotImplementedException();
     }

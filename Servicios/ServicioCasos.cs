@@ -19,7 +19,7 @@ public class ServicioCasos : IServicio<Caso>
         throw new NotImplementedException();
     }
 
-    public void Editar(int id, Caso modelo)
+    public void Editar(Caso modelo)
     {
         throw new NotImplementedException();
     }
