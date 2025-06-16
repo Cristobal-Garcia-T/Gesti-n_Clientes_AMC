@@ -2,6 +2,7 @@
 {
     public class ClienteNatural : Cliente
     {
-        public required string Nombre { get; set; } = string.Empty;
+        public required string Nombre { get; set; }
+        public required string Tipo { get; set; } = "Cliente Natural";
     }
 }

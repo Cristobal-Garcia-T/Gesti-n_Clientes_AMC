@@ -1,7 +1,7 @@
 ﻿using AccesoDB.Modelos;
 using CommunityToolkit.Mvvm.Messaging;
-using ControladoresWPF.Mensajes;
 using Servicios;
+using Servicios.Mensajes;
 
 namespace ControladoresWPF.Windows.Formularios;
 
@@ -11,7 +11,8 @@ public class FormularioCrearConsultorViewModel
     private readonly IMessenger _messenger;
     public Consultor NuevoConsultor { get; set; } = new Consultor
     {
-        Id = "",
+        Id = 0,
+        Rut = "",
         Nombre = "",
         Contrasena = "",
         Correo = "",

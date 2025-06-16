@@ -13,7 +13,7 @@ namespace Servicios
         }
 
         public List<Consultor> RecuperarTodos() => _contexto.Consultores.ToList();
-        public Consultor? RecuperarPorId(string id)
+        public Consultor? RecuperarPorId(int id)
         {
             throw new NotImplementedException();
         }
@@ -24,16 +24,17 @@ namespace Servicios
             _contexto.SaveChanges();
         }
 
-        public void Editar(Consultor consultorSeleccionado)
+        public void Editar(int id, Consultor nuevoConsultor)
         {
-            var existente = _contexto.Consultores.Find(consultorSeleccionado.Id);
+            var existente = _contexto.Consultores.Find(id);
             if (existente != null)
             {
+                existente = nuevoConsultor;
                 _contexto.SaveChanges();
             }
         }
 
-        public void Eliminar(string? id)
+        public void Eliminar(int id)
         {
             var consultor = _contexto.Consultores.Find(id);
             if (consultor != null)

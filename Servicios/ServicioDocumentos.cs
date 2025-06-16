@@ -9,7 +9,7 @@ public class ServicioDocumentos : IServicio<DocumentoElectronico>
         throw new NotImplementedException();
     }
 
-    public DocumentoElectronico? RecuperarPorId(string id)
+    public DocumentoElectronico? RecuperarPorId(int id)
     {
         throw new NotImplementedException();
     }
@@ -19,12 +19,12 @@ public class ServicioDocumentos : IServicio<DocumentoElectronico>
         throw new NotImplementedException();
     }
 
-    public void Editar(DocumentoElectronico modelo)
+    public void Editar(int id, DocumentoElectronico modelo)
     {
         throw new NotImplementedException();
     }
-
-    public void Eliminar(string id)
+    
+    public void Eliminar(int id)
     {
         throw new NotImplementedException();
     }

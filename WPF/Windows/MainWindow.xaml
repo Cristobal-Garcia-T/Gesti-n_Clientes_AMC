@@ -8,7 +8,7 @@
         Title="GestionClientes" Height="600" Width="800">
     <Grid>
         <Frame x:Name="MainFrame"
-                NavigationUIVisibility="Hidden"/>
+               NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
 

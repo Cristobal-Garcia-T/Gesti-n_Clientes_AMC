@@ -11,31 +11,33 @@
 
     <Grid Margin="10">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        
+        <DockPanel Grid.Row="0" Margin="10" LastChildFill="False">
+            <Label Content="Consultores" FontSize="18" FontWeight="Bold" VerticalAlignment="Center" />
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="10,0,0,0">
+                <Button Content="Nuevo Perfil" Width="120" Margin="5,0" Click="BotonCrear_OnClick"/>
+                <Button IsEnabled="{Binding PuedeEditarConsultor}" Content="Editar Perfil" Width="120" Margin="5,0" Click="BtnEditar_OnClick"/>
+                <Button Content="Eliminar Perfil" Width="120" Margin="5,0" Command="{Binding EliminarCommand}"/>
+            </StackPanel>
+        </DockPanel>
 
-        <DataGrid ItemsSource="{Binding Consultores}" 
+        <DataGrid Grid.Row="1" ItemsSource="{Binding Consultores}" 
                   SelectedItem="{Binding ConsultorSeleccionado}"
                   AutoGenerateColumns="False"
                   CanUserAddRows="False"
                   ColumnWidth="*" 
                   IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Rut" Binding="{Binding Id}" />
-                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombres}" />
-                <DataGridTextColumn Header="Apellido" Binding="{Binding Apellidos}" />
+                <DataGridTextColumn Header="Rut" Binding="{Binding Rut}" />
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />
                 <DataGridTextColumn Header="Correo" Binding="{Binding Correo}" />
                 <DataGridTextColumn Header="Teléfono" Binding="{Binding Telefono}" />
                 <DataGridTextColumn Header="N° Clientes" Binding="{Binding NumeroClientes}" />
                 <DataGridTextColumn Header="N° Casos" Binding="{Binding NumeroCasos}" />
             </DataGrid.Columns>
         </DataGrid>
-
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button x:Name="BotonCrear" Content="Crear" Click="BotonCrear_OnClick" Margin="5"/>
-            <Button Content="Actualizar" Command="{Binding ActualizarCommand}" Margin="5"/>
-            <Button Content="Eliminar" Command="{Binding EliminarCommand}" Margin="5"/>
-        </StackPanel>
     </Grid>
 </UserControl>

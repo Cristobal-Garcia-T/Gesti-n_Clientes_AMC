@@ -2,7 +2,8 @@
 {
     public class Empresa : Cliente
     {
-        public required string RazonSocial { get; set; } = string.Empty;
-        public required string Actividad { get; set; } = string.Empty;
+        public required string RazonSocial { get; set; }
+        public required string Actividad { get; set; }
+        public required string Tipo { get; set; } = "Empresa";
     }
 }

@@ -5,8 +5,8 @@ namespace Servicios;
 public interface IServicio<T> where T : IModelo
 {
     List<T> RecuperarTodos();
-    T? RecuperarPorId(string id);
+    T? RecuperarPorId(int id);
     void Agregar(T modelo);
-    void Editar(T modelo);
-    void Eliminar(string id);
+    void Editar(int id, T modelo);
+    void Eliminar(int id);
 }

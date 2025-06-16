@@ -13,7 +13,7 @@
                 <Label Content="Nombre"/>
                 <TextBox Text="{Binding NuevoAdministrador.Nombre, Mode=OneWayToSource}"/>
                 <Label Content="Rut"/>
-                <TextBox Text="{Binding NuevoAdministrador.Id, Mode=OneWayToSource}"/>
+                <TextBox Text="{Binding NuevoAdministrador.Rut, Mode=OneWayToSource}"/>
                 <Label Content="Contraseña"/>
                 <TextBox Text="{Binding NuevoAdministrador.Contrasena, Mode=OneWayToSource}"/>
                 <Label Content="Correo"/>

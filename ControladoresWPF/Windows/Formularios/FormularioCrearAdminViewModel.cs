@@ -9,7 +9,8 @@ public class FormularioCrearAdminViewModel
 
     public Administrador NuevoAdministrador { get; set; } = new Administrador
     {
-        Id = "",
+        Id = 0,
+        Rut = "",
         Nombre = "",
         Contrasena = "",
         Correo = "",

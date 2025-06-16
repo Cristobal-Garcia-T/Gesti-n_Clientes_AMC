@@ -9,7 +9,7 @@ public class ServicioClientesNaturales : IServicio<ClienteNatural>
         throw new NotImplementedException();
     }
 
-    public ClienteNatural? RecuperarPorId(string id)
+    public ClienteNatural? RecuperarPorId(int id)
     {
         throw new NotImplementedException();
     }
@@ -19,12 +19,12 @@ public class ServicioClientesNaturales : IServicio<ClienteNatural>
         throw new NotImplementedException();
     }
 
-    public void Editar(ClienteNatural modelo)
+    public void Editar(int id, ClienteNatural modelo)
     {
         throw new NotImplementedException();
     }
 
-    public void Eliminar(string id)
+    public void Eliminar(int id)
     {
         throw new NotImplementedException();
     }

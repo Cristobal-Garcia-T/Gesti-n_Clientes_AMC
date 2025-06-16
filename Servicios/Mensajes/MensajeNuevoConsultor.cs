@@ -1,7 +1,7 @@
 ﻿using AccesoDB.Modelos;
 using CommunityToolkit.Mvvm.Messaging.Messages;
 
-namespace ControladoresWPF.Mensajes;
+namespace Servicios.Mensajes;
 
 public class MensajeNuevoConsultor : ValueChangedMessage<Consultor>
 {

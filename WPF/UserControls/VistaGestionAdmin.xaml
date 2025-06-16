@@ -19,7 +19,7 @@
                   HeadersVisibility="Column"
                   ColumnWidth="*">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Rut" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Rut" Binding="{Binding Rut}" />
                 <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />
                 <DataGridTextColumn Header="Correo" Binding="{Binding Correo}" />
                 <DataGridTextColumn Header="Teléfono" Binding="{Binding Telefono}" />

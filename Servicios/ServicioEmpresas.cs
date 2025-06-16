@@ -9,7 +9,7 @@ public class ServicioEmpresas : IServicio<Empresa>
         throw new NotImplementedException();
     }
 
-    public Empresa? RecuperarPorId(string id)
+    public Empresa? RecuperarPorId(int id)
     {
         throw new NotImplementedException();
     }
@@ -19,12 +19,12 @@ public class ServicioEmpresas : IServicio<Empresa>
         throw new NotImplementedException();
     }
 
-    public void Editar(Empresa modelo)
+    public void Editar(int id, Empresa modelo)
     {
         throw new NotImplementedException();
     }
 
-    public void Eliminar(string id)
+    public void Eliminar(int id)
     {
         throw new NotImplementedException();
     }

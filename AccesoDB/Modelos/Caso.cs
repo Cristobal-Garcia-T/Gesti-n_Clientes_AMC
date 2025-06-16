@@ -1,19 +1,17 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace AccesoDB.Modelos
+﻿namespace AccesoDB.Modelos
 {
     public class Caso : IModelo
     {
-        [Key] public required string Id { get; set; } = string.Empty;
-        public required string IdCliente { get; set; } = string.Empty;
-        public required string IdBeneficiario { get; set; } = string.Empty;
-        public required string ServicioContratado { get; set; } = string.Empty;
-        public required string MedioPago { get; set; } = string.Empty;
-        public required string DocumentoTributario { get; set; } = string.Empty;
+        public required int Id { get; set; }
+        public required int IdCliente { get; set; }
+        public required int IdBeneficiario { get; set; }
+        public required string ServicioContratado { get; set; }
+        public required string MedioPago { get; set; }
+        public required string DocumentoTributario { get; set; }
         public DateTime FechaCreacion { get; set; } = DateTime.Now;
         public DateTime FechaLimiteInformeCierre { get; set; }
-        public required string Estado { get; set; } = string.Empty;
-        public required string Resumen { get; set; } = string.Empty;
+        public required string Estado { get; set; }
+        public required string Resumen { get; set; }
         public string? InformeResolucion { get; set; }
         public string? ObservacionesEspeciales { get; set; }
     }

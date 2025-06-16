@@ -13,7 +13,7 @@ public class ServicioAdministradores : IServicio<Administrador>
         _contexto = contexto;
     }
     public List<Administrador> RecuperarTodos() => _contexto.Administradores.ToList();
-    public Administrador? RecuperarPorId(string id)
+    public Administrador? RecuperarPorId(int id)
     {
         throw new NotImplementedException();
     }
@@ -24,12 +24,12 @@ public class ServicioAdministradores : IServicio<Administrador>
         _contexto.SaveChanges();
     }
 
-    public void Editar(Administrador modelo)
+    public void Editar(int id, Administrador modelo)
     {
         throw new NotImplementedException();
     }
 
-    public void Eliminar(string id)
+    public void Eliminar(int id)
     {
         throw new NotImplementedException();
     }

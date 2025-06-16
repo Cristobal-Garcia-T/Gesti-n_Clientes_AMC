@@ -1,0 +1,92 @@
+﻿<Window x:Class="WPF.Windows.Formularios.FormularioActualizarConsultor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:vm="clr-namespace:ControladoresWPF.Windows.Formularios;assembly=ControladoresWPF"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance Type=vm:FormularioActualizarConsultorViewModel, IsDesignTimeCreatable=True}"
+        Title="FormularioCrearConsultor" Height="450" Width="300"
+        ResizeMode="NoResize">
+    
+    <StackPanel Margin="10">
+        <Grid>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Content="Nombre"/>
+                <TextBox Grid.Row="1" Text="{Binding NuevoConsultor.Nombre, Mode=OneWayToSource}"/>
+                <TextBlock Grid.Row="1" Text="{Binding ConsultorSeleccionado.Nombre}" Margin="5,0,0,0" FontWeight="Light" Foreground="DimGray"/>
+            </Grid>
+            
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Content="Rut"/>
+                <TextBox Grid.Row="1" Text="{Binding NuevoConsultor.Id, Mode=OneWayToSource}"/>
+                <TextBlock Grid.Row="1" Text="{Binding ConsultorSeleccionado.Id}" Margin="5,0,0,0" FontWeight="Light" Foreground="DimGray"/>
+            </Grid>
+            
+            <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Content="Contraseña"/>
+                <TextBox Grid.Row="1" Text="{Binding NuevoConsultor.Contrasena, Mode=OneWayToSource}"/>
+                <TextBlock Grid.Row="1" Text="{Binding ConsultorSeleccionado.Contrasena}" Margin="5,0,0,0" FontWeight="Light" Foreground="DimGray"/>
+            </Grid>
+            
+            <Grid Grid.Row="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Content="Correo"/>
+                <TextBox Grid.Row="1" Text="{Binding NuevoConsultor.Correo, Mode=OneWayToSource}"/>
+                <TextBlock Grid.Row="1" Text="{Binding ConsultorSeleccionado.Correo}" Margin="5,0,0,0" FontWeight="Light" Foreground="DimGray"/>
+            </Grid>
+            
+            <Grid Grid.Row="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Content="Teléfono"/>
+                <TextBox Grid.Row="1" Text="{Binding NuevoConsultor.Telefono, Mode=OneWayToSource}"/>
+                <TextBlock Grid.Row="1" Text="{Binding ConsultorSeleccionado.Telefono}" Margin="5,0,0,0" FontWeight="Light" Foreground="DimGray"/>
+            </Grid>
+        </Grid>
+        
+        <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+            <Button x:Name="BtnCancelar" 
+                    Content="Cancelar" 
+                    Padding="5" 
+                    Margin="10" 
+                    Width="70"
+                    Click="BtnCancelar_OnClick"/>
+            <Button x:Name="BtnAceptar" 
+                    Content="Aceptar" 
+                    Padding="5" 
+                    Margin="10" 
+                    Width="70"
+                    Click="BtnAceptar_OnClick"
+                    Command="{Binding EditarCommand}"/>
+        </StackPanel>
+        
+    </StackPanel>
+    
+</Window>

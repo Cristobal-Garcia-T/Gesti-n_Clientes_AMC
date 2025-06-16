@@ -16,11 +16,11 @@ public class ServicioLogin
         _contexto = contexto;
     }
     
-    public Usuario? Login(string? id, string? pass, string? tipo)
+    public Usuario? Login(string? rut, string? pass, string? tipo)
     {
         if (tipo == "Administrador")
         {
-            var adminBuscado = _contexto.Administradores.Find(id);
+            var adminBuscado = _contexto.Administradores.First(u => u.Rut == rut);
             if (adminBuscado != null && adminBuscado.Contrasena == pass)
             {
                 UsuarioActual = adminBuscado;
@@ -31,7 +31,7 @@ public class ServicioLogin
 
         if (tipo == "Consultor")
         {
-            var consultorBuscado = _contexto.Consultores.Find(id);
+            var consultorBuscado = _contexto.Consultores.First(u => u.Rut == rut);
             if (consultorBuscado != null && consultorBuscado.Contrasena == pass)
             {
                 UsuarioActual = consultorBuscado;

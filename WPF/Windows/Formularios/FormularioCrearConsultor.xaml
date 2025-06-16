@@ -7,15 +7,14 @@
         xmlns:local="clr-namespace:WPF.Windows.Formularios"
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance Type=vm:FormularioCrearConsultorViewModel, IsDesignTimeCreatable=True}"
-        Title="FormularioCrearConsultor" Height="450" Width="800"
+        Title="FormularioCrearConsultor" Height="450" Width="300"
         ResizeMode="NoResize">
+    
     <StackPanel Margin="10">
         <Label Content="Nombres"/>
-        <TextBox Text="{Binding NuevoConsultor.Nombres, Mode=OneWayToSource}"/>
-        <Label Content="Apellidos"/>
-        <TextBox Text="{Binding NuevoConsultor.Apellidos, Mode=OneWayToSource}"/>
+        <TextBox Text="{Binding NuevoConsultor.Nombre, Mode=OneWayToSource}"/>
         <Label Content="Rut"/>
-        <TextBox Text="{Binding NuevoConsultor.Id, Mode=OneWayToSource}"/>
+        <TextBox Text="{Binding NuevoConsultor.Rut, Mode=OneWayToSource}"/>
         <Label Content="Contraseña"/>
         <TextBox Text="{Binding NuevoConsultor.Contrasena, Mode=OneWayToSource}"/>
         <Label Content="Correo"/>

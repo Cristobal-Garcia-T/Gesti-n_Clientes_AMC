@@ -1,4 +1,5 @@
 using System.Windows;
+using System.Windows.Controls;
 using CommunityToolkit.Mvvm.Messaging;
 using ControladoresWPF.UserControls;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,6 +21,11 @@ namespace WPF.UserControls
         private void BotonCrear_OnClick(object sender, RoutedEventArgs e)
         {
             new FormularioCrearConsultor().ShowDialog();
+        }
+
+        private void BtnEditar_OnClick(object sender, RoutedEventArgs e)
+        {
+            new FormularioActualizarConsultor().ShowDialog();
         }
     }
 }

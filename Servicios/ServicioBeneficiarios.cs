@@ -9,7 +9,7 @@ public class ServicioBeneficiarios : IServicio<Beneficiario>
         throw new NotImplementedException();
     }
 
-    public Beneficiario? RecuperarPorId(string id)
+    public Beneficiario? RecuperarPorId(int id)
     {
         throw new NotImplementedException();
     }
@@ -19,12 +19,12 @@ public class ServicioBeneficiarios : IServicio<Beneficiario>
         throw new NotImplementedException();
     }
 
-    public void Editar(Beneficiario modelo)
+    public void Editar(int id, Beneficiario modelo)
     {
         throw new NotImplementedException();
     }
 
-    public void Eliminar(string id)
+    public void Eliminar(int id)
     {
         throw new NotImplementedException();
     }

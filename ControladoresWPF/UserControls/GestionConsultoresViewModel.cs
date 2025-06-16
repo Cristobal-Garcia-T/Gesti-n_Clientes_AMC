@@ -1,29 +1,22 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using AccesoDB.Modelos;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Messaging;
-using ControladoresWPF.Mensajes;
 using Servicios;
+using Servicios.Mensajes;
 
 namespace ControladoresWPF.UserControls
 {
-    public class GestionConsultoresViewModel : INotifyPropertyChanged
+    public partial class GestionConsultoresViewModel : ObservableObject
     {
         private readonly ServicioConsultores _servicioConsultores;
         private readonly IMessenger _messenger;
+        [ObservableProperty]
         private Consultor? _consultorSeleccionado;
-        public Consultor? ConsultorSeleccionado
-        {
-            get => _consultorSeleccionado;
-            set
-            {
-                _consultorSeleccionado = value; 
-                OnPropertyChanged(nameof(ConsultorSeleccionado));
-            }
-        }
         public ObservableCollection<Consultor> Consultores { get; set; }
-        public RelayCommand ActualizarCommand => new(_ => Actualizar(), _ => ConsultorSeleccionado != null);
         public RelayCommand EliminarCommand => new(_ => Eliminar(), _ => ConsultorSeleccionado != null);
+        public bool PuedeEditarConsultor => ConsultorSeleccionado != null;
 
         public GestionConsultoresViewModel(ServicioConsultores servicioConsultores, IMessenger messenger)
         {
@@ -35,20 +28,22 @@ namespace ControladoresWPF.UserControls
             {
                 Consultores.Add(manipulador.Value);
             });
-        }
-        
-        private void Actualizar()
-        {
-            _servicioConsultores.Editar(ConsultorSeleccionado!);
+            
+            _messenger.Register<MensajeSolicitarConsultorSeleccionado>(this, (receptor, manipulador) =>
+            {
+                manipulador.Respuesta?.Invoke(ConsultorSeleccionado!);
+            });
         }
 
         private void Eliminar()
         {
-            _servicioConsultores.Eliminar(ConsultorSeleccionado?.Id);
+            _servicioConsultores.Eliminar(ConsultorSeleccionado!.Id);
             Consultores.Remove(ConsultorSeleccionado!);
         }
-        
-        public event PropertyChangedEventHandler? PropertyChanged;
-        protected void OnPropertyChanged(string nombre) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nombre));
+
+        partial void OnConsultorSeleccionadoChanged(Consultor? value)
+        {
+            OnPropertyChanged(nameof(PuedeEditarConsultor));
+        }
     }
 }
