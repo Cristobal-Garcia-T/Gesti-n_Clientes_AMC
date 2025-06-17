@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:WPF.Windows.Formularios"
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance Type=vm:FormularioCrearClienteViewModel, IsDesignTimeCreatable=True}"
-        Title="FormularioCrearConsultor" Height="450" Width="300"
+        Title="Agregar Cliente" Height="450" Width="300"
         ResizeMode="NoResize">
     <StackPanel Margin="10">
         
