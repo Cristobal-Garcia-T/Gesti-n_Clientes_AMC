@@ -14,10 +14,9 @@ namespace AccesoDB
         public DbSet<Administrador> Administradores { get; set; }
         public DbSet<Beneficiario> Beneficiarios { get; set; }
         public DbSet<Caso> Casos { get; set; }
-        public DbSet<ClienteNatural> ClienteNaturales { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Consultor> Consultores { get; set; }
         public DbSet<DocumentoElectronico> DocumentosElectronicos { get; set; }
-        public DbSet<Empresa> Empresas { get; set; }
         public DbSet<Tarea> Tareas { get; set; }
     }
 }

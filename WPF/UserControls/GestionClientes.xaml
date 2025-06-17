@@ -17,9 +17,9 @@
         <DockPanel Grid.Row="0" Margin="10" LastChildFill="False">
             <Label Content="Clientes" FontSize="18" FontWeight="Bold" VerticalAlignment="Center" />
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="10,0,0,0">
-                <Button Content="Nuevo Cliente" Width="120" Margin="5,0"/>
-                <Button Content="Modificar Cliente" Width="140" Margin="5,0"/>
-                <Button Content="Eliminar Cliente" Width="120" Margin="5,0"/>
+                <Button Content="Nuevo Cliente" Width="120" Margin="5,0" Click="BtnAgregar_OnClick"/>
+                <Button  IsEnabled="{Binding PuedeEditarCliente}" Content="Modificar Cliente" Width="140" Margin="5,0" Click="BtnEditar_OnClick"/>
+                <Button Content="Eliminar Cliente" Width="120" Margin="5,0" Command="{Binding EliminarCommand}"/>
             </StackPanel>
         </DockPanel>
         
@@ -29,13 +29,15 @@
                   CanUserResizeColumns="True"
                   HeadersVisibility="Column"
                   IsReadOnly="True"
-                  ItemsSource="{Binding ClientesNaturales}">
+                  ItemsSource="{Binding Clientes}"
+                  SelectedItem="{Binding ClienteSeleccionado}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="RUT" Binding="{Binding Rut}" Width="150"/>
                 <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" Width="1.5*" />
                 <DataGridTextColumn Header="Teléfono" Binding="{Binding Telefono}" Width="1.2*" />
                 <DataGridTextColumn Header="Email" Binding="{Binding Correo}" Width="2*" />
                 <DataGridTextColumn Header="N° Casos" Binding="{Binding NumeroCasos}" Width="1.5*" />
+                <DataGridTextColumn Header="Tipo" Binding="{Binding Tipo}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

@@ -1,6 +1,10 @@
-﻿using ControladoresWPF.UserControls;
+﻿using System.Windows;
+using AccesoDB.Modelos;
+using CommunityToolkit.Mvvm.Messaging;
+using ControladoresWPF.UserControls;
 using Microsoft.Extensions.DependencyInjection;
 using Servicios;
+using WPF.Windows.Formularios;
 
 namespace WPF.UserControls
 {
@@ -8,10 +12,21 @@ namespace WPF.UserControls
     {
         public GestionClientes()
         {
-            var servicioClientesNaturales = App.AppHost.Services.GetRequiredService<ServicioClientesNaturales>();
-            var servicioEmpresas = App.AppHost.Services.GetRequiredService<ServicioEmpresas>();
-            DataContext = new GestionClientesViewModel(servicioClientesNaturales, servicioEmpresas);
+            var servicioClientes = App.AppHost.Services.GetRequiredService<ServicioClientes>();
+            var usuarioLogueadoId = App.AppHost.Services.GetRequiredService<ServicioLogin>().UsuarioActual!.Id;
+            var mensajero = App.AppHost.Services.GetRequiredService<IMessenger>();
+            DataContext = new GestionClientesViewModel(servicioClientes, usuarioLogueadoId, mensajero);
             InitializeComponent();
+        }
+
+        private void BtnAgregar_OnClick(object sender, RoutedEventArgs e)
+        {
+            new FormularioCrearCliente().ShowDialog();
+        }
+
+        private void BtnEditar_OnClick(object sender, RoutedEventArgs e)
+        {
+            new FormularioActualizarCliente().ShowDialog();
         }
     }
 

@@ -23,10 +23,9 @@ namespace WPF
                 services.AddScoped<ServicioAdministradores>();
                 services.AddScoped<ServicioBeneficiarios>();
                 services.AddScoped<ServicioCasos>();
-                services.AddScoped<ServicioClientesNaturales>();
+                services.AddScoped<ServicioClientes>();
                 services.AddScoped<ServicioConsultores>();
                 services.AddScoped<ServicioDocumentos>();
-                services.AddScoped<ServicioEmpresas>();
                 services.AddScoped<ServicioTareas>();
                 services.AddScoped<ServicioLogin>();
                 

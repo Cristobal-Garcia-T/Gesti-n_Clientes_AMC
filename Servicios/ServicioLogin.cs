@@ -7,8 +7,6 @@ public class ServicioLogin
 {
     private readonly ContextoDb _contexto;
     public Usuario? UsuarioActual { get; set; }
-    public bool Autenticado => UsuarioActual != null;
-    
     public event EventHandler<Usuario?>? UsuarioActualChanged;
 
     public ServicioLogin(ContextoDb contexto)
@@ -20,7 +18,7 @@ public class ServicioLogin
     {
         if (tipo == "Administrador")
         {
-            var adminBuscado = _contexto.Administradores.First(u => u.Rut == rut);
+            var adminBuscado = _contexto.Administradores.FirstOrDefault(u => u.Rut == rut);
             if (adminBuscado != null && adminBuscado.Contrasena == pass)
             {
                 UsuarioActual = adminBuscado;
@@ -31,7 +29,7 @@ public class ServicioLogin
 
         if (tipo == "Consultor")
         {
-            var consultorBuscado = _contexto.Consultores.First(u => u.Rut == rut);
+            var consultorBuscado = _contexto.Consultores.FirstOrDefault(u => u.Rut == rut);
             if (consultorBuscado != null && consultorBuscado.Contrasena == pass)
             {
                 UsuarioActual = consultorBuscado;

@@ -10,7 +10,6 @@ namespace ControladoresWPF.UserControls
     public partial class GestionConsultoresViewModel : ObservableObject
     {
         private readonly ServicioConsultores _servicioConsultores;
-        private readonly IMessenger _messenger;
         [ObservableProperty]
         private Consultor? _consultorSeleccionado;
         public ObservableCollection<Consultor> Consultores { get; set; }
@@ -19,11 +18,10 @@ namespace ControladoresWPF.UserControls
 
         public GestionConsultoresViewModel(ServicioConsultores servicioConsultores, IMessenger messenger)
         {
-            _messenger = messenger;
             _servicioConsultores = servicioConsultores;
             Consultores = new ObservableCollection<Consultor>(_servicioConsultores.RecuperarTodos());
             
-            _messenger.Register<MensajeNuevoConsultor>(this, (receptor, manipulador) =>
+            messenger.Register<MensajeNuevoConsultor>(this, (receptor, manipulador) =>
             {
                 if (Consultores.Contains(manipulador.Value))
                     EditarConsultor(manipulador.Value);
@@ -31,7 +29,7 @@ namespace ControladoresWPF.UserControls
                     AgregarConsultor(manipulador.Value);
             });
             
-            _messenger.Register<MensajeSolicitarConsultorSeleccionado>(this, (receptor, manipulador) =>
+            messenger.Register<MensajeSolicitarConsultorSeleccionado>(this, (receptor, manipulador) =>
             {
                 manipulador.Respuesta?.Invoke(ConsultorSeleccionado!);
             });
